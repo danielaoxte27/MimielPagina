@@ -71,6 +71,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<h1>Welcome to CodeIgniter!</h1>
 	<?=base_url()?><br>
 	<?php echo $x=52;?>
+	<br>
+	<h1><?=convertir_estatus("1")?></h1>
 	<div id="body">
 		<h1>¡SI LLEGASTE AQUÍ, ES QUE CONFIGURASTE BIEN EL SITIO!</h1>
 		<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>

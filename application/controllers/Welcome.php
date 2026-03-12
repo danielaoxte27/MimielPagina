@@ -28,4 +28,17 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->view('welcome_message');
 	}
+
+	public function principal(){
+		$this->load->view("secciones/header");
+		$this->load->view("principal");
+		$this->load->view("secciones/footer");
+	}
+
+	public function login(){
+	$this->load->view("auth/login");
+	}
+	public function registro(){
+	$this->load->view("auth/registro");
+	}
 }
