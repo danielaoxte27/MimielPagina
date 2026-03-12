@@ -71,6 +71,7 @@
             border-radius:8px;
             outline:none;
             transition:0.3s;
+            box-sizing: border-box;
         }
  
         .form-group input:focus{
@@ -89,6 +90,7 @@
             font-size:16px;
             cursor:pointer;
             transition:0.3s;
+            box-sizing: border-box;
         }
  
         .btn-registrar:hover{
