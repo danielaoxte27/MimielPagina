@@ -185,6 +185,21 @@
             color:#ffffff;
             padding:60px 5px;
             text-align:center;
+            position: relative;
+            overflow: hidden; 
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='92' viewBox='0 0 80 92'%3E%3Cpolygon points='40,2 76,22 76,62 40,82 4,62 4,22' fill='none' stroke='%23ffffff' stroke-width='2'/%3E%3C/svg%3E");
+            background-size: 80px 92px;
+            opacity: 0.12;
+            pointer-events: none;
+            z-index: 0;
         }
 
         .hero h1{
