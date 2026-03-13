@@ -1,7 +1,7 @@
 <main>
 
     <!-- HERO -->
-     <section class="hero">
+     <section id="inicio" class="hero">
 
         <div style="position: relative; z-index: 1;">
 
@@ -41,7 +41,7 @@
     <!-- FIN HERO -->
 
     <!-- MISIÓN -->
-    <section class="mision">
+    <section id="quienes"class="mision">
 
         <div class="mision-container">
 
@@ -96,7 +96,7 @@
     <!-- FIN MISIÓN -->
 
     <!-- PRODUCTOS -->
-    <section class="productos">
+    <section id="productos" class="productos">
 
         <div class="productos-container">
             <h2>Productos</h2>

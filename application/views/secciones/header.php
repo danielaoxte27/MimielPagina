@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css'); ?>">
 
     <title>PAGINA MIMIEL</title>
 
@@ -675,15 +676,18 @@
         <div class="logo">
             <img src="<?= base_url('assets/imagenes/logo.jpg'); ?>" alt="Logo de la empresa">
         </div>
+        <div  id="menu-toggle" class="menu-toggle">
+        ☰
+        </div>
 
-        <nav>   
-            <a href="" class="nav-link">Inicio</a>
-            <a href="" class="nav-link">Quiénes somos</a>
-            <a href="" class="nav-link">Productos</a>
-            <a href="" class="nav-link">Blog</a>
-            <a href="" class="nav-link">Recetas</a>
-            <a href="" class="nav-link">Opiniones</a>
-            <a href="" class="nav-link">Contacto</a>
+        <nav id="navbar">   
+            <a href="#inicio" class="nav-link">Inicio</a>
+            <a href="#quienes" class="nav-link">Quiénes somos</a>
+            <a href="#productos" class="nav-link">Productos</a>
+            <a href="#blog" class="nav-link">Blog</a>
+            <a href="#recetas" class="nav-link">Recetas</a>
+            <a href="#opiniones" class="nav-link">Opiniones</a>
+            <a href="#contacto" class="nav-link">Contacto</a>
 
             <a href="" class="btn-carrito">
                 Agregar al carrito
