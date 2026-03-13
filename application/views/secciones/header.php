@@ -79,15 +79,13 @@
             height:1em;
         }
 
-        @media (max-width:1050px){
+      @media (max-width:1224px){
             header{
-                flex-direction:column;
-                gap:15px;
+                flex-direction: row;   
+                gap: 0;
             }
-
             nav{
-                flex-wrap:wrap;
-                justify-content:center;
+                flex-wrap: nowrap;
             }
         }
 
@@ -676,9 +674,8 @@
         <div class="logo">
             <img src="<?= base_url('assets/imagenes/logo.jpg'); ?>" alt="Logo de la empresa">
         </div>
-        <div  id="menu-toggle" class="menu-toggle">
-        ☰
-        </div>
+
+        <div id="menu-toggle" class="menu-toggle">☰</div>
 
         <nav id="navbar">   
             <a href="#inicio" class="nav-link">Inicio</a>
@@ -706,4 +703,3 @@
         </nav>
     </header>
     <script src="<?= base_url('assets/js/accesibilidad.js'); ?>"></script>
-
