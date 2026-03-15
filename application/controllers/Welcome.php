@@ -30,15 +30,36 @@ class Welcome extends CI_Controller {
 	}
 
 	public function principal(){
-		$this->load->view("secciones/header");
-		$this->load->view("principal");
-		$this->load->view("secciones/footer");
+		$data["img"] = $this->cargar_imagenes();
+		$this->load->view("secciones/header",$data);
+		$this->load->view("principal",$data);
+		$this->load->view("secciones/footer",$data);
 	}
 
 	public function login(){
-	$this->load->view("auth/login");
+	$data["img"] = $this->cargar_imagenes();	
+	$this->load->view("auth/login",$data);
 	}
 	public function registro(){
-	$this->load->view("auth/registro");
+	$data["img"] = $this->cargar_imagenes();
+	$this->load->view("auth/registro",$data);
+	}
+
+
+	private function cargar_imagenes(){
+ 
+    $this->load->model("Pagina_model");
+ 
+    $imagenes = $this->Pagina_model->consultar_imagenes();
+ 
+    $img = [];
+ 
+    if($imagenes){
+        foreach($imagenes as $i){
+            $img[$i->alt] = $i;
+        }
+    }
+ 
+    return $img;
 	}
 }
