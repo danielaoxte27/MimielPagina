@@ -4,10 +4,8 @@
     <section id="inicio" class="hero">
         <div style="position: relative; z-index: 1;">
 
-            <?php foreach($hero as $item): ?>
-                <h1><?= $item->titulo ?></h1>
-                <p><?= $item->descripcion ?></p>
-            <?php endforeach; ?>
+            <h1><?= $titulos['hero']->titulo ?></h1>
+            <p><?= $titulos['hero']->descripcion ?></p>
 
             <div class="beneficios">
                 <?php foreach($beneficios as $item): ?>
@@ -31,10 +29,9 @@
                <img src="<?= base_url($img['logo cuadrado']->ruta.$img['logo cuadrado']->nombre_archivo); ?>" alt="Logo">
             </div>
  
-            <h2>Nuestra Misión</h2>
- 
+            <h2><?= $titulos['mision']->titulo ?></h2>
             <p class="mision-frase">
-                Llevar a tu hogar la miel más pura y natural, producida de manera sustentable.
+                <?= $titulos['mision']->descripcion ?>
             </p>
  
             <div class="mision-bloques">
@@ -61,9 +58,9 @@
     <section id="productos" class="productos">
  
         <div class="productos-container">
-            <h2>Productos</h2>
+           <h2><?= $titulos['productos']->titulo ?></h2>
             <p class="productos-frase">
-                Miel natural, implementos seguros y delicias de temporada
+                <?= $titulos['productos']->descripcion ?>
             </p>
  
             <div class="productos-bloques">
@@ -116,9 +113,9 @@
  
         <div class="elegirnos-container">
  
-            <h2>¿Por qué elegirnos?</h2>
+            <h2><?= $titulos['elegirnos']->titulo ?></h2>
             <p class="elegirnos-frase">
-                Calidad, confianza y compromiso en cada producto que ofrecemos.
+                <?= $titulos['elegirnos']->descripcion ?>
             </p>
  
             <div class="elegirnos-bloques">

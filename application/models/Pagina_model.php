@@ -45,14 +45,6 @@ class Pagina_model extends CI_Model {
         $this->db->initialize();
         return count($result) > 0 ? $result : false;
     }
-    // CONSULTAR HERO
-    function consultar_hero(){
-        $query = $this->db->query("CALL ObtenerHero()");
-        $result = $query->result();
-        $this->db->close();  
-        $this->db->initialize(); 
-        return count($result) > 0 ? $result : false;
-    }
     // CONSULTAR BENEFICIOS
     function consultar_beneficios(){
         $query = $this->db->query("CALL ObtenerBeneficios()");
@@ -64,6 +56,14 @@ class Pagina_model extends CI_Model {
     // CONSULTAR ELEGIRNOS
     function consultar_elegirnos(){
         $query = $this->db->query("CALL ObtenerElegirnos()");
+        $result = $query->result();
+        $this->db->close();
+        $this->db->initialize();
+        return count($result) > 0 ? $result : false;
+    }
+    // CONSULTAR TITULOS
+    function consultar_titulos(){
+        $query = $this->db->query("CALL ObtenerTitulos()");
         $result = $query->result();
         $this->db->close();
         $this->db->initialize();

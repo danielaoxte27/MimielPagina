@@ -38,9 +38,9 @@ class Welcome extends CI_Controller {
 		$data["img"] = $this->cargar_imagenes();
 		$data["secciones"] = $this->cargar_secciones();
 		$data["mision"] = $this->cargar_mision();
-		$data["hero"] = $this->cargar_hero();
 		$data["beneficios"] = $this->cargar_beneficios();
 		$data["elegirnos"] = $this->cargar_elegirnos();
+		$data["titulos"] = $this->cargar_titulos();
 
 		$this->load->view("secciones/header",$data);
 		$this->load->view("principal",$data);
@@ -84,12 +84,6 @@ class Welcome extends CI_Controller {
     	return $mision ? $mision : [];
 	}
 
-	private function cargar_hero(){
-		// $this->load->model("Pagina_model");
-		$hero = $this->Pagina_model->consultar_hero();
-		return $hero ? $hero : [];
-	}
-
 	private function cargar_beneficios(){
 		// $this->load->model("Pagina_model");
 		$beneficios = $this->Pagina_model->consultar_beneficios();
@@ -100,5 +94,17 @@ class Welcome extends CI_Controller {
 		// $this->load->model("Pagina_model");
 		$elegirnos = $this->Pagina_model->consultar_elegirnos();
 		return $elegirnos ? $elegirnos : [];
+	}
+
+	private function cargar_titulos(){
+		$titulos = $this->Pagina_model->consultar_titulos();
+		if($titulos){
+			$t = [];
+			foreach($titulos as $item){
+				$t[$item->seccion] = $item;
+			}
+			return $t;
+		}
+		return [];
 	}
 }
