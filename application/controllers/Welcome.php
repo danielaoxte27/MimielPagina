@@ -38,6 +38,8 @@ class Welcome extends CI_Controller {
 		$data["img"] = $this->cargar_imagenes();
 		$data["secciones"] = $this->cargar_secciones();
 		$data["mision"] = $this->cargar_mision();
+		$data["hero"] = $this->cargar_hero();
+		$data["beneficios"] = $this->cargar_beneficios();
 
 		$this->load->view("secciones/header",$data);
 		$this->load->view("principal",$data);
@@ -79,5 +81,17 @@ class Welcome extends CI_Controller {
 		// $this->load->model("Pagina_model");
     	$mision = $this->Pagina_model->consultar_mision();
     	return $mision ? $mision : [];
+	}
+
+	private function cargar_hero(){
+		// $this->load->model("Pagina_model");
+		$hero = $this->Pagina_model->consultar_hero();
+		return $hero ? $hero : [];
+	}
+
+	private function cargar_beneficios(){
+		// $this->load->model("Pagina_model");
+		$beneficios = $this->Pagina_model->consultar_beneficios();
+		return $beneficios ? $beneficios : [];
 	}
 }

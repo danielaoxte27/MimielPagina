@@ -40,11 +40,25 @@ class Pagina_model extends CI_Model {
     // CONSULTAR MISION DE LA EMPRESA
     function consultar_mision(){
         $query = $this->db->query("CALL ObtenerMision()");
-        if($query->num_rows() > 0){
-            return $query->result();
-        }else{
-            return false;
-        }
+        $result = $query->result();
+        $this->db->close();
+        $this->db->initialize();
+        return count($result) > 0 ? $result : false;
     }
- 
+    // CONSULTAR HERO
+    function consultar_hero(){
+        $query = $this->db->query("CALL ObtenerHero()");
+        $result = $query->result();
+        $this->db->close();  
+        $this->db->initialize(); 
+        return count($result) > 0 ? $result : false;
+    }
+    // CONSULTAR BENEFICIOS
+    function consultar_beneficios(){
+        $query = $this->db->query("CALL ObtenerBeneficios()");
+        $result = $query->result();
+        $this->db->close(); 
+        $this->db->initialize(); 
+        return count($result) > 0 ? $result : false;
+    }
 }

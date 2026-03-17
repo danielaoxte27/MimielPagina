@@ -1,42 +1,24 @@
 <main>
  
     <!-- HERO -->
-     <section id="inicio" class="hero">
- 
+    <section id="inicio" class="hero">
         <div style="position: relative; z-index: 1;">
- 
-            <h1>Miel 100% natural directo del panal</h1>
- 
-            <p>Descubre la pureza y el sabor auténtico de la miel producida con amor y cuidado por nuestras abejas</p>
- 
+
+            <?php foreach($hero as $item): ?>
+                <h1><?= $item->titulo ?></h1>
+                <p><?= $item->descripcion ?></p>
+            <?php endforeach; ?>
+
             <div class="beneficios">
- 
-                <div class="beneficio">
-                    <svg class="icono-beneficio" viewBox="0 0 24 24" fill="none" stroke="#FFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z"></path>
-                    </svg>
-                    <p>100% Natural</p>
-                </div>
- 
-                <div class="beneficio">
-                    <svg class="icono-beneficio" viewBox="0 0 24 24" fill="none" stroke="#FFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M5 21c10 0 14-6 14-14C9 7 5 11 5 21z"></path>
-                    </svg>
-                    <p>Sin aditivos</p>
-                </div>
- 
-                <div class="beneficio">
-                    <svg class="icono-beneficio" viewBox="0 0 24 24" fill="none" stroke="#FFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="8" r="6"></circle>
-                        <path d="M8 14l-2 8 6-3 6 3-2-8"></path>
-                    </svg>
-                    <p>Calidad garantizada</p>
-                </div>
- 
+                <?php foreach($beneficios as $item): ?>
+                    <div class="beneficio">
+                        <svg class="icono-beneficio" viewBox="0 0 24 24" fill="none" stroke="#FFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <?= $item->icono ?>
+                        </svg>
+                        <p><?= $item->descripcion ?></p>
+                    </div>
+                <?php endforeach; ?>
             </div>
- 
-        </div>
- 
     </section>
     <!-- FIN HERO -->
  
