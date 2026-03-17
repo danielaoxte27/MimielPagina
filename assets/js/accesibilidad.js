@@ -29,6 +29,7 @@ function resetAccesibilidad() {
     panel.classList.toggle("activo");
     boton.classList.toggle("mover");
 }*/
+
 document.addEventListener("DOMContentLoaded", function () {
     const toggle = document.getElementById("menu-toggle");
     const navbar = document.getElementById("navbar");
@@ -37,5 +38,5 @@ document.addEventListener("DOMContentLoaded", function () {
         toggle.addEventListener("click", function () {
             navbar.classList.toggle("active");
         });
-    }
+    }   
 });

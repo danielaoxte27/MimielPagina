@@ -34,6 +34,20 @@
             z-index:1000;
         }
 
+        header a:hover{
+            outline: 3px solid rgb(237, 184, 25);
+            outline-offset: 3px;
+            border-radius: 10px;
+            padding: 5px 15px;
+        }
+
+        header a:focus{
+            outline: 3px solid rgb(237, 184, 25);
+            outline-offset: 3px;
+            border-radius: 10px;
+            padding: 5px 15px;
+        }
+
         .logo img{
             height:70px;
         }
@@ -53,14 +67,20 @@
         }
 
         .nav-link:hover{
-            color:#ff7a00;
+            color: #e69d00;
+        }
+
+        .nav-link.activo{
+            color:#e69d00;
+            border-bottom:2px solid #e69d00;
+            padding-bottom:3px;
         }
 
         .btn-carrito{
             display:flex;
             align-items:center;
             gap:8px;
-            background-color:#ff7a00;
+            background-color: #e69d00;
             color:#ffffff;
             padding:8px 18px;
             border-radius:8px;
@@ -71,7 +91,7 @@
         }
 
         .btn-carrito:hover{
-            background-color:#e66a00;
+            background-color: #fabc12;
         }
 
         .icono-carrito{
@@ -312,7 +332,7 @@
             width:40px;
             height:40px;
             fill:none;
-            stroke:#F28C28;
+            stroke: #F28C28;
             stroke-width:2.5;
             margin-bottom:10px;
         }
@@ -353,7 +373,7 @@
             display:inline-block;
             margin-top:auto;
             padding:8px 16px;
-            background:#F28C28;
+            background: #e69d00;
             color:#fff;
             border-radius:6px;
             text-decoration:none;
@@ -362,7 +382,7 @@
         }
 
         .btn-producto:hover {
-            background:#d9731f;
+            background: #fabc12;
         }
 
 
