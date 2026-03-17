@@ -64,43 +64,16 @@
             </p>
  
             <div class="productos-bloques">
- 
-                <!-- Tarjeta 1 -->
-                <div class="producto-item">
-                    <img src="<?= base_url($img['miel']->ruta.$img['miel']->nombre_archivo); ?>" class="tag-img">
-                    <h3>Productos de miel</h3>
-                    <p>Conoce nuestra línea de miel de abeja.</p>
- 
-                    <a href="#" class="btn-producto">Ver productos</a>
-                </div>
- 
-                <!-- Tarjeta 2 -->
-                <div class="producto-item">
-                    <img src="<?= base_url($img['implementos']->ruta.$img['implementos']->nombre_archivo); ?>" class="tag-img">
-                    <h3>Equipo Apícola</h3>
-                    <p>Variedad en implementos apícolas para el campo.</p>
- 
-                    <a href="#" class="btn-producto">Ver productos</a>
-                </div>
- 
-                <!-- Tarjeta 3 -->
-                <div class="producto-item">
-                   <img src="<?= base_url($img['belleza']->ruta.$img['belleza']->nombre_archivo); ?>" class="tag-img">
-                    <h3>Productos de belleza</h3>
-                    <p>Protege tu piel con ingredientes naturales de la colmena.</p>
- 
-                    <a href="#" class="btn-producto">Ver productos</a>
-                </div>
- 
-                <!-- Tarjeta 4 -->
-                <div class="producto-item">
-                   <img src="<?= base_url($img['temporada']->ruta.$img['temporada']->nombre_archivo); ?>" class="tag-img">
-                    <h3>Productos de temporada</h3>
-                    <p>Productos exclusivos que no podrás dejar de probar.</p>
- 
-                    <a href="#" class="btn-producto">Ver productos</a>
-                </div>
- 
+                <?php if(!empty($tarjetas)): ?>
+                    <?php foreach($tarjetas as $item): ?>
+                        <div class="producto-item">
+                            <img src="<?= base_url($img[$item->imagen_alt]->ruta.$img[$item->imagen_alt]->nombre_archivo); ?>" class="tag-img">
+                            <h3><?= $item->nombre ?></h3>
+                            <p><?= $item->descripcion ?></p>
+                            <a href="#" class="btn-producto">Ver productos</a>
+                        </div>
+                    <?php endforeach; ?>
+                <?php endif; ?>
             </div>
  
         </div>

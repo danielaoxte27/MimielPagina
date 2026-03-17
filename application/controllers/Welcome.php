@@ -41,6 +41,7 @@ class Welcome extends CI_Controller {
 		$data["beneficios"] = $this->cargar_beneficios();
 		$data["elegirnos"] = $this->cargar_elegirnos();
 		$data["titulos"] = $this->cargar_titulos();
+		$data["tarjetas"] = $this->cargar_tarjetas();
 
 		$this->load->view("secciones/header",$data);
 		$this->load->view("principal",$data);
@@ -97,6 +98,7 @@ class Welcome extends CI_Controller {
 	}
 
 	private function cargar_titulos(){
+		// $this->load->model("Pagina_model");
 		$titulos = $this->Pagina_model->consultar_titulos();
 		if($titulos){
 			$t = [];
@@ -106,5 +108,11 @@ class Welcome extends CI_Controller {
 			return $t;
 		}
 		return [];
+	}
+
+	private function cargar_tarjetas(){
+		// $this->load->model("Pagina_model");
+		$tarjetas = $this->Pagina_model->consultar_tarjetas();
+		return $tarjetas ? $tarjetas : [];
 	}
 }

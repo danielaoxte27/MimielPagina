@@ -69,4 +69,12 @@ class Pagina_model extends CI_Model {
         $this->db->initialize();
         return count($result) > 0 ? $result : false;
     }
+    // CONSULTAR TARJETAS
+    function consultar_tarjetas(){
+        $query = $this->db->query("CALL ObtenerTarjetas()");
+        $result = $query->result();
+        $this->db->close();
+        $this->db->initialize();
+        return count($result) > 0 ? $result : false;
+    }
 }
