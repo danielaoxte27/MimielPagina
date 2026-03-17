@@ -17,7 +17,7 @@
                     <?php } ?>
                 </div>
             </div>
-   <!-- ** -->
+  
             <!-- Columna 2 -->
             <div class="footer-col">
                 <h4>Contacto</h4>
