@@ -23,5 +23,21 @@ class Pagina_model extends CI_Model {
         }
  
     }
+
+    // CONSULTAR SECCIONES ACTIVAS
+    function consultar_secciones_activas(){
+ 
+        $sql = "SELECT id, nombre_seccion, href, activo, registro
+                FROM cat_secciones
+                WHERE activo = 1";
+ 
+        $query = $this->db->query($sql);
+ 
+        if($query->num_rows() > 0){
+            return $query->result();
+        }else{
+            return false;
+        }
+    }
  
 }

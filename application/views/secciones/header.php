@@ -93,24 +93,25 @@
             background-color: #fabc12;
         }
        .botones-nav{
-        display:flex;
-        flex-direction:column;
-        margin-left:auto;
-        align-items:flex-end;
-        justify-content:flex-start;
-    }
-    .botones-nav a{
-        width:200px;
-        justify-content:center;
-    }
-    .btn-login{
-        margin-top:15px;
-    }
-    .icono-carrito{
-        width:1em;
-        height:1em;
-    }
-      @media (max-width:1224px){
+            display:flex;
+            flex-direction:row;
+            margin-left:auto;
+            align-items:center;
+            justify-content:flex-start;
+            gap:15px;
+        }
+        .botones-nav a{
+            width:200px;
+            justify-content:center;
+        }
+        .btn-login{
+            margin-top:0px;
+        }
+        .icono-carrito{
+            width:1em;
+            height:1em;
+        }
+        @media (max-width:1224px){
             header{
                 flex-direction: row;  
                 gap: 0;
@@ -702,24 +703,24 @@
         <button onclick="resetAccesibilidad()">Reiniciar</button>
     </div>
 </div>
-    <header>
-        <div class="logo">
-            <img src="<?= base_url($img['logo']->ruta.$img['logo']->nombre_archivo); ?>" alt="Logo de la empresa">
-        </div>
- 
-        <div id="menu-toggle" class="menu-toggle">☰</div>
- 
-        <nav id="navbar">  
-            <a href="#inicio" class="nav-link">Inicio</a>
-            <a href="#quienes" class="nav-link">Quiénes somos</a>
-            <a href="#productos" class="nav-link">Productos</a>
-            <a href="#blog" class="nav-link">Blog</a>
-            <a href="#recetas" class="nav-link">Recetas</a>
-            <a href="#opiniones" class="nav-link">Opiniones</a>
-            <a href="#contacto" class="nav-link">Contacto</a>
- 
 
-            <div class="botones-nav">
+<header>
+    <div class="logo">
+        <img src="<?= base_url($img['logo']->ruta.$img['logo']->nombre_archivo); ?>" alt="Logo de la empresa">
+    </div>
+
+    <div id="menu-toggle" class="menu-toggle">☰</div>
+
+    <nav id="navbar">
+        <?php if(!empty($secciones)): ?>
+            <?php foreach($secciones as $seccion): ?>
+                <a href="<?= $seccion->href ?>" class="nav-link">
+                    <?= $seccion->nombre_seccion ?>
+                </a>
+            <?php endforeach; ?>
+        <?php endif; ?>
+
+        <div class="botones-nav">
             <a href="" class="btn-carrito">
                 Agregar al carrito
                 <svg class="icono-carrito" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
@@ -728,18 +729,16 @@
                     <path d="M1 1h4l2.6 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.5L23 6H6"></path>
                 </svg>
             </a>
- 
+
             <a href="<?= site_url('Welcome/login') ?>" class="btn-carrito btn-login">
-                 Iniciar sesión
-                  <svg class="icono-carrito" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                  <circle cx="12" cy="7" r="4"></circle>
-                  </svg>
-                  </a>
- 
-            </div>
- 
- 
-        </nav>
-    </header>
-    <script src="<?= base_url('assets/js/accesibilidad.js'); ?>"></script>
+                Iniciar sesión
+                <svg class="icono-carrito" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+            </a>
+        </div>
+    </nav>
+</header>
+
+<script src="<?= base_url('assets/js/accesibilidad.js'); ?>"></script>

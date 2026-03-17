@@ -3,6 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcome extends CI_Controller {
 
+	public function __construct(){
+        parent::__construct();
+		$this->load->model("Pagina_model");
+    }
+
 	/**
 	 * Index Page for this controller.
 	 *
@@ -31,24 +36,25 @@ class Welcome extends CI_Controller {
 
 	public function principal(){
 		$data["img"] = $this->cargar_imagenes();
+		$data["secciones"] = $this->cargar_secciones();
 		$this->load->view("secciones/header",$data);
 		$this->load->view("principal",$data);
 		$this->load->view("secciones/footer",$data);
 	}
 
 	public function login(){
-	$data["img"] = $this->cargar_imagenes();	
-	$this->load->view("auth/login",$data);
+		$data["img"] = $this->cargar_imagenes();	
+		$this->load->view("auth/login",$data);
 	}
 	public function registro(){
-	$data["img"] = $this->cargar_imagenes();
-	$this->load->view("auth/registro",$data);
+		$data["img"] = $this->cargar_imagenes();
+		$this->load->view("auth/registro",$data);
 	}
 
 
 	private function cargar_imagenes(){
  
-    $this->load->model("Pagina_model");
+    //$this->load->model("Pagina_model");
  
     $imagenes = $this->Pagina_model->consultar_imagenes();
  
@@ -62,4 +68,10 @@ class Welcome extends CI_Controller {
  
     return $img;
 	}
+
+	private function cargar_secciones(){
+		// $this->load->model("Pagina_model");
+        $secciones = $this->Pagina_model->consultar_secciones_activas(); // ← sin load->model
+        return $secciones ? $secciones : [];
+    }
 }
