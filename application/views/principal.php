@@ -122,56 +122,21 @@
             </p>
  
             <div class="elegirnos-bloques">
- 
-                <div class="elegir-item">
-                    <div class="icono-circulo">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <path d="M9 12l2 2 4-4"></path>
-                        </svg>
-                    </div>
-                    <h3>Calidad Premium</h3>
-                    <p>Miel certificada y seleccionada bajo altos estándares.</p>
-                </div>
- 
-                <div class="elegir-item">
-                    <div class="icono-circulo">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="1" y="3" width="15" height="13"></rect>
-                            <path d="M16 8h4l3 3v5h-7z"></path>
-                            <circle cx="5.5" cy="18.5" r="2.5"></circle>
-                            <circle cx="18.5" cy="18.5" r="2.5"></circle>
-                        </svg>
-                    </div>
-                    <h3>Envíos Rápidos</h3>
-                    <p>Entregamos tu pedido de forma segura y puntual.</p>
-                </div>
- 
-                <div class="elegir-item">
-                    <div class="icono-circulo">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 15a4 4 0 0 1-4 4H7l-4 4V5a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"></path>
-                        </svg>
-                    </div>
-                    <h3>Atención Personalizada</h3>
-                    <p>Estamos disponibles para resolver todas tus dudas.</p>
-                </div>
- 
-                <div class="elegir-item">
-                    <div class="icono-circulo">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
-                            <line x1="9" y1="9" x2="9.01" y2="9"></line>
-                            <line x1="15" y1="9" x2="15.01" y2="9"></line>
-                        </svg>
-                    </div>
-                    <h3>Satisfacción Garantizada</h3>
-                    <p>Tu felicidad es nuestra prioridad.</p>
-                </div>
- 
+                <?php if(!empty($elegirnos)): ?>
+                    <?php foreach($elegirnos as $item): ?>
+                        <div class="elegir-item">
+                            <div class="icono-circulo">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <?= $item->icono ?>
+                                </svg>
+                            </div>
+                            <h3><?= $item->titulo ?></h3>
+                            <p><?= $item->descripcion ?></p>
+                        </div>
+                    <?php endforeach; ?>
+                <?php endif; ?>
             </div>
- 
+            
         </div>
  
     </section>

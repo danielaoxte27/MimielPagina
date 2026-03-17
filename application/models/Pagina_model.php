@@ -61,4 +61,12 @@ class Pagina_model extends CI_Model {
         $this->db->initialize(); 
         return count($result) > 0 ? $result : false;
     }
+    // CONSULTAR ELEGIRNOS
+    function consultar_elegirnos(){
+        $query = $this->db->query("CALL ObtenerElegirnos()");
+        $result = $query->result();
+        $this->db->close();
+        $this->db->initialize();
+        return count($result) > 0 ? $result : false;
+    }
 }
