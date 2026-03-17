@@ -77,4 +77,9 @@ class Pagina_model extends CI_Model {
         $this->db->initialize();
         return count($result) > 0 ? $result : false;
     }
+    public function obtener_footer($tipo){
+    return $this->db->get_where('cat_footer', [
+        'tipo' => $tipo,
+        'estatus' => 1])->result();
+	}
 }

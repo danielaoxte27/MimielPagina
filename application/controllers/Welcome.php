@@ -42,6 +42,7 @@ class Welcome extends CI_Controller {
 		$data["elegirnos"] = $this->cargar_elegirnos();
 		$data["titulos"] = $this->cargar_titulos();
 		$data["tarjetas"] = $this->cargar_tarjetas();
+		$data["footer"] = $this->cargar_footer();
 
 		$this->load->view("secciones/header",$data);
 		$this->load->view("principal",$data);
@@ -115,4 +116,13 @@ class Welcome extends CI_Controller {
 		$tarjetas = $this->Pagina_model->consultar_tarjetas();
 		return $tarjetas ? $tarjetas : [];
 	}
+	private function cargar_footer(){
+    return [
+        "redes" => $this->Pagina_model->obtener_footer("redes"),
+        "contacto" => $this->Pagina_model->obtener_footer("contacto"),
+        "sucursales" => $this->Pagina_model->obtener_footer("sucursal"),
+        "enlaces" => $this->Pagina_model->obtener_footer("enlace")
+    ];
+}
+
 }
