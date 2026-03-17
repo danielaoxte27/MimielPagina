@@ -168,6 +168,9 @@
             text-align:center;
             box-shadow:0 6px 18px rgba(0, 0, 0, 0.05);
             position:relative;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
  
         }
         .mision-item:hover{
@@ -178,13 +181,11 @@
         .icono-mision{
             width:50px;
             height: 50px;
-            position:center;
-            top:10px;
-            left:10px;
+            display:block;
+            margin:0 auto 10px auto;
             fill:none;
             stroke:#F28C28;
             stroke-width:2;
-            margin-bottom:10px;
         }
  
         .mision-item h3{

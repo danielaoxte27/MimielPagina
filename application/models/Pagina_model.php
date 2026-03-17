@@ -6,7 +6,6 @@ class Pagina_model extends CI_Model {
     public function __construct(){
         parent::__construct();
     }
- 
     // CONSULTAR IMAGENES
     function consultar_imagenes(){
  
@@ -23,7 +22,6 @@ class Pagina_model extends CI_Model {
         }
  
     }
-
     // CONSULTAR SECCIONES ACTIVAS
     function consultar_secciones_activas(){
  
@@ -33,6 +31,15 @@ class Pagina_model extends CI_Model {
  
         $query = $this->db->query($sql);
  
+        if($query->num_rows() > 0){
+            return $query->result();
+        }else{
+            return false;
+        }
+    }
+    // CONSULTAR MISION DE LA EMPRESA
+    function consultar_mision(){
+        $query = $this->db->query("CALL ObtenerMision()");
         if($query->num_rows() > 0){
             return $query->result();
         }else{

@@ -37,6 +37,8 @@ class Welcome extends CI_Controller {
 	public function principal(){
 		$data["img"] = $this->cargar_imagenes();
 		$data["secciones"] = $this->cargar_secciones();
+		$data["mision"] = $this->cargar_mision();
+
 		$this->load->view("secciones/header",$data);
 		$this->load->view("principal",$data);
 		$this->load->view("secciones/footer",$data);
@@ -53,25 +55,29 @@ class Welcome extends CI_Controller {
 
 
 	private function cargar_imagenes(){
- 
-    //$this->load->model("Pagina_model");
- 
-    $imagenes = $this->Pagina_model->consultar_imagenes();
- 
-    $img = [];
- 
-    if($imagenes){
-        foreach($imagenes as $i){
-            $img[$i->alt] = $i;
-        }
-    }
- 
-    return $img;
+		//$this->load->model("Pagina_model");
+		$imagenes = $this->Pagina_model->consultar_imagenes();
+	
+		$img = [];
+	
+		if($imagenes){
+			foreach($imagenes as $i){
+				$img[$i->alt] = $i;
+			}
+		}
+	
+		return $img;
 	}
 
 	private function cargar_secciones(){
 		// $this->load->model("Pagina_model");
-        $secciones = $this->Pagina_model->consultar_secciones_activas(); // ← sin load->model
+        $secciones = $this->Pagina_model->consultar_secciones_activas();
         return $secciones ? $secciones : [];
     }
+
+	private function cargar_mision(){
+		// $this->load->model("Pagina_model");
+    	$mision = $this->Pagina_model->consultar_mision();
+    	return $mision ? $mision : [];
+	}
 }

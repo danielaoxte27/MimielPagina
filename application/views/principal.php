@@ -56,38 +56,18 @@
             </p>
  
             <div class="mision-bloques">
- 
-                <div class="mision-item">
-                    <svg class="icono-mision" viewBox="0 0 24 24" fill="none" stroke="#F28C28" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 5.5-7 10-7 10z"></path>
-                    </svg>
-                    <h3>Pasión por la Apicultura</h3>
-                    <p>
-                        Cuidamos nuestras colmenas con dedicación y respeto por la naturaleza.
-                    </p>
-                </div>
- 
-                <div class="mision-item">
-                    <svg class="icono-mision" viewBox="0 0 24 24" fill="none" stroke="#F28C28" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 2C8 8 6 10 6 13a6 6 0 0 0 12 0c0-3-2-5-6-11z"></path>
-                    </svg>
-                    <h3>Pureza Garantizada</h3>
-                    <p>
-                        Sin procesos químicos, solo miel natural tal como la producen las abejas.
-                    </p>
-                </div>
- 
-                <div class="mision-item">
-                    <svg class="icono-mision" viewBox="0 0 24 24" fill="none" stroke="#F28C28" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="7" r="4"></circle>
-                        <path d="M5.5 21a6.5 6.5 0 0 1 13 0"></path>
-                    </svg>
-                    <h3>Compromiso Contigo</h3>
-                    <p>
-                        Tu satisfacción es nuestra prioridad, ofrecemos productos de la más alta calidad.
-                    </p>
-                </div>
- 
+                <?php if(!empty($mision)): ?>
+                    <?php foreach($mision as $item): ?>
+                        <div class="mision-item">
+                            <svg class="icono-mision" viewBox="0 0 24 24" fill="none" stroke="#F28C28" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <?= $item->icono ?>
+                            </svg>
+                            <h3><?= $item->titulo ?></h3>
+                            <p><?= $item->descripcion ?></p>
+                        </div>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+                
             </div>
  
         </div>
