@@ -122,7 +122,9 @@
     
     <a href="<?= site_url('Welcome/principal') ?>" class="cerrar">✕</a>
  
-    <img src="<?= base_url($img['logo']->ruta.$img['logo']->nombre_archivo); ?>" alt="Logo Mimiel">
+    <a href="<?= site_url('Welcome/principal') ?>">
+        <img src="<?= base_url($img['logo']->ruta.$img['logo']->nombre_archivo); ?>" alt="Logo Mimiel">
+    </a>
  
     <h2>Crear cuenta</h2>
  

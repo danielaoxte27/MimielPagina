@@ -41,6 +41,11 @@
             padding: 5px 15px;
         }
 
+        header .logo:hover{
+            outline: none; 
+            padding: 0;
+        }
+
         header a:focus{
             outline: 3px solid rgb(237, 184, 25);
             outline-offset: 3px;
@@ -651,7 +656,7 @@
  
     <link rel="stylesheet" href="<?= base_url('assets/css/accesibilidad.css'); ?>">
 </head>
- 
+
 <body>
  
 <!-- Ícono flotante -->
@@ -706,9 +711,9 @@
 </div>
 
 <header>
-    <div class="logo">
+    <a href="<?= site_url('Welcome/principal') ?>" class="logo">
         <img src="<?= base_url($img['logo']->ruta.$img['logo']->nombre_archivo); ?>" alt="Logo de la empresa">
-    </div>
+    </a>
 
     <div id="menu-toggle" class="menu-toggle">☰</div>
 
