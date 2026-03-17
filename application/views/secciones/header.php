@@ -644,6 +644,7 @@
                 background:#d9731f;
            
         }
+}
     </style>
  
     <link rel="stylesheet" href="<?= base_url('assets/css/accesibilidad.css'); ?>">
@@ -653,7 +654,7 @@
  
 <!-- Ícono flotante -->
 <div id="btn-accesibilidad">
-    <img src="<?= base_url('assets/imagenes/accesibilidad.png'); ?>" alt="Accesibilidad">
+    <img src="<?= base_url($img['accesibilidad']->ruta.$img['accesibilidad']->nombre_archivo); ?>" alt="Accesibilidad">
 </div>
  
 <!-- Panel de accesibilidad -->
@@ -664,35 +665,35 @@
  
     <div class="panel-grid">
         <button onclick="toggleVoz()">
-           <img src="<?= base_url('assets/imagenes/voz.png'); ?>" class="icono-panel">
+           <img src="<?= base_url($img['voz']->ruta.$img['voz']->nombre_archivo); ?>" class="icono-panel">
             Voz
         </button>
         <button onclick="toggleContraste()">
-           <img src="<?= base_url('assets/imagenes/contraste.png'); ?>" class="icono-panel">
+           <img src="<?= base_url($img['contraste']->ruta.$img['contraste']->nombre_archivo); ?>" class="icono-panel">
             Contrastes
         </button>
         <button onclick="toggleLinks()">
-           <img src="<?= base_url('assets/imagenes/hipervinculo.png'); ?>" class="icono-panel">
+           <img src="<?= base_url($img['hipervinculo']->ruta.$img['hipervinculo']->nombre_archivo); ?>" class="icono-panel">
             Hipervínculos
         </button>
         <button onclick="aumentarTexto()">
-           <img src="<?= base_url('assets/imagenes/tamaño.png'); ?>" class="icono-panel">
+           <img src="<?= base_url($img['tamaño']->ruta.$img['tamaño']->nombre_archivo); ?>" class="icono-panel">
             Tamaño texto
         </button>
         <button onclick="toggleEspaciado()">
-          <img src="<?= base_url('assets/imagenes/espacios.png'); ?>" class="icono-panel">
+          <img src="<?= base_url($img['espacios']->ruta.$img['espacios']->nombre_archivo); ?>" class="icono-panel">
             Espacios
         </button>
         <button onclick="toggleAnimaciones()">
-            <img src="<?= base_url('assets/imagenes/animaciones.png'); ?>" class="icono-panel">
+            <img src="<?= base_url($img['animaciones']->ruta.$img['animaciones']->nombre_archivo); ?>" class="icono-panel">
             Sin animaciones
         </button>
         <button onclick="toggleLegible()">
-            <img src="<?= base_url('assets/imagenes/legible.png'); ?>" class="icono-panel">
+            <img src="<?= base_url($img['legible']->ruta.$img['legible']->nombre_archivo); ?>" class="icono-panel">
             Texto legible
         </button>
         <button onclick="cambiarPosicion()">
-            <img src="<?= base_url('assets/imagenes/posicion.png'); ?>" class="icono-panel">
+            <img src="<?= base_url($img['posicion']->ruta.$img['posicion']->nombre_archivo); ?>" class="icono-panel">
             Posición
         </button>
     </div>
@@ -703,7 +704,7 @@
 </div>
     <header>
         <div class="logo">
-            <img src="<?= base_url('assets/imagenes/logo.jpg'); ?>" alt="Logo de la empresa">
+            <img src="<?= base_url($img['logo']->ruta.$img['logo']->nombre_archivo); ?>" alt="Logo de la empresa">
         </div>
  
         <div id="menu-toggle" class="menu-toggle">☰</div>
