@@ -39,6 +39,7 @@ function resetAccesibilidad() {
         });
     }   
 });*/
+/*actualización de navbar*/
 document.addEventListener("DOMContentLoaded", function() {
     const navLinks = document.querySelectorAll('#navbar .nav-link');
     function resaltarEnlace(hash) {
