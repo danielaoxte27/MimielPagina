@@ -41,6 +41,29 @@
             padding: 5px 15px;
         }
 
+        header a.activo, .nav-link.activo {
+            outline: 3px solid rgb(237, 184, 25) !important;
+            outline-offset: 3px;
+            border-radius: 10px;
+            padding: 5px 15px;
+            color: #e69d00;
+        }
+        header nav a.nav-link:hover, 
+        header nav a.nav-link.activo {
+            outline: 3px solid rgb(237, 184, 25) !important;
+            outline-offset: 3px !important;
+            border-radius: 10px !important;
+            padding: 5px 15px !important;
+            color: #e69d00 !important;
+            text-decoration: none !important;
+            transition: all 0.2s ease;
+        }
+        header nav a.nav-link {
+            padding: 5px 15px;
+            border: 3px solid transparent;
+            transition: 0.3s;
+        }   
+
         header .logo:hover{
             outline: none; 
             padding: 0;
@@ -60,6 +83,8 @@
            display:flex;
            align-items:center;
            gap:20px;
+           justify-content: flex-end !important;
+           width: auto;
         }
 
         .nav-link{
@@ -68,16 +93,25 @@
             font-weight:bold;
             font-size:16px;
             transition:0.3s;
+            padding: 5px 10px;
         }
-
+        .nav-link{
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
         .nav-link:hover{
             color: #e69d00;
+            transform: translateY(-10px);
+            box-shadow:0 15px 25px rgba(0,0,0,0.05);
+            transition:transform 0..3s ease ;
         }
 
         .nav-link.activo{
-            color:#e69d00;
-            border-bottom:2px solid #e69d00;
-            padding-bottom:3px;
+            outline: 3px solid rgb(237, 184, 25) !important;
+            outline-offset: 3px !important;
+            border-radius: 10px !important;
+            padding: 5px 15px !important;
+            color: #e69d00 !important;
+            font-weight: bold !important;
         }
 
         .btn-carrito{
@@ -176,11 +210,14 @@
             display:flex;
             flex-direction:column;
             align-items:center;
- 
+        }
+        .mision-item{
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .mision-item:hover{
-            transform: translateY(-5px);
+            transform: translateY(-10px);
             box-shadow:0 15px 25px rgba(0,0,0,0.05);
+            transition:transform 0..3s ease ;
         }
  
         .icono-mision{
@@ -720,7 +757,7 @@
     <nav id="navbar">
         <?php if(!empty($secciones)): ?>
             <?php foreach($secciones as $seccion): ?>
-                <a href="<?= $seccion->href ?>" class="nav-link">
+                <a href="<?= $seccion->href ?>" class="nav-link ">
                     <?= $seccion->nombre_seccion ?>
                 </a>
             <?php endforeach; ?>
@@ -745,6 +782,18 @@
             </a>
         </div>
     </nav>
+    <script src="<?= base_url('assets/js/accesibilidad.js'); ?>"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                     navLinks.forEach(l => l.classList.remove('activo'));
+                     this.classList.add('activo');
+                });
+            });
+        });
+</script>
 </header>
 
-<script src="<?= base_url('assets/js/accesibilidad.js'); ?>"></script>
