@@ -48,7 +48,7 @@
             padding: 5px 15px;
             color: #e69d00;
         }
-        header nav a.nav-link:hover, /*actualización de navbar-->*/
+        header nav a.nav-link:hover,
         header nav a.nav-link.activo {
             outline: 3px solid rgb(237, 184, 25) !important;
             outline-offset: 3px !important;

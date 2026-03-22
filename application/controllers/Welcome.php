@@ -36,6 +36,7 @@ class Welcome extends CI_Controller {
 
 	public function principal(){
 		$data["img"] = $this->cargar_imagenes();
+		
 		$data["secciones"] = $this->cargar_secciones();
 		$data["mision"] = $this->cargar_mision();
 		$data["beneficios"] = $this->cargar_beneficios();
