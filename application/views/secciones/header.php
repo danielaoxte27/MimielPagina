@@ -40,7 +40,6 @@
             border-radius: 10px;
             padding: 5px 15px;
         }
-
  
         header a.activo, .nav-link.activo {
             outline: 3px solid rgb(237, 184, 25) !important;
@@ -94,14 +93,14 @@
             font-weight:bold;
             font-size:16px;
             transition:0.3s;
-            padding: 5px 8px;
+            padding: 5px 10px;
         }
         .nav-link{
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .nav-link:hover{
             color: #e69d00;
-            transform: translateY(-2px);
+            transform: translateY(-10px);
             box-shadow:0 15px 25px rgba(0,0,0,0.05);
             transition:transform 0..3s ease ;
         }
@@ -121,7 +120,7 @@
             gap:8px;
             background-color: #e69d00;
             color:#ffffff;
-            padding:8px 12px;
+            padding:8px 18px;
             border-radius:8px;
             text-decoration:none;
             font-weight:bold;
@@ -132,12 +131,6 @@
         .btn-carrito:hover{
             background-color: #fabc12;
         }
-                .nav-superior{
-    display:flex;
-    align-items:center;
-    width:100%;
-    gap:10px;
-}
        .botones-nav{
             display:flex;
             flex-direction:row;
@@ -147,7 +140,7 @@
             gap:15px;
         }
         .botones-nav a{
-            width:auto;
+            width:200px;
             justify-content:center;
         }
         .btn-login{
@@ -163,7 +156,7 @@
                 gap: 0;
             }
             nav{
-                flex-wrap: nowrap;
+                flex-wrap: wrap;
             }          
         }
        
@@ -224,7 +217,7 @@
         .mision-item:hover{
             transform: translateY(-10px);
             box-shadow:0 15px 25px rgba(0,0,0,0.05);
-            transition:transform 0.3s ease ;
+            transition:transform 0..3s ease ;
         }
  
         .icono-mision{
@@ -761,17 +754,15 @@
  
     <div id="menu-toggle" class="menu-toggle">☰</div>
  
-    <!-- FILA ARRIBA -->
-    <div class="nav-superior">
-        
+    <nav id="navbar">
         <?php if(!empty($secciones)): ?>
             <?php foreach($secciones as $seccion): ?>
-                <a href="<?= site_url($seccion->href) ?>" class="nav-link">
+                <?php /* <a href="<?= $seccion->href ?>" class="nav-link "> */ ?>
+                <a href="<?= site_url($seccion->href) ?>" class="nav-link ">
                     <?= $seccion->nombre_seccion ?>
                 </a>
             <?php endforeach; ?>
         <?php endif; ?>
-        
  
         <div class="botones-nav">
             <a href="" class="btn-carrito">
@@ -805,6 +796,4 @@
             });
         });
 </script>
-</div>
-        </nav>
 </header>
