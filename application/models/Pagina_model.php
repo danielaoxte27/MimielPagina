@@ -82,4 +82,5 @@ class Pagina_model extends CI_Model {
         'tipo' => $tipo,
         'estatus' => 1])->result();
 	}
+
 }
