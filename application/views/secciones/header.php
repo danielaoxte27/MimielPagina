@@ -757,8 +757,7 @@
     <nav id="navbar">
         <?php if(!empty($secciones)): ?>
             <?php foreach($secciones as $seccion): ?>
-                <?php /* <a href="<?= $seccion->href ?>" class="nav-link "> */ ?>
-                <a href="<?= site_url($seccion->href) ?>" class="nav-link ">
+                <a href="<?= $seccion->href ?>" class="nav-link ">
                     <?= $seccion->nombre_seccion ?>
                 </a>
             <?php endforeach; ?>
