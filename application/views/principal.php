@@ -55,39 +55,30 @@
     <!-- FIN MISIÓN -->
  
     <!-- PRODUCTOS -->
-   <section id="productos" class="productos">
-
-    <div class="productos-container">
-
-        <h2><?= $titulos['productos']->titulo ?></h2>
-        <p class="productos-frase">
-            <?= $titulos['productos']->descripcion ?>
-        </p>
-
-        <div class="productos-bloques">
-
-            <?php if(!empty($tarjetas)): ?>
-                <?php foreach($tarjetas as $item): ?>
-                    <div class="producto-item">
-
-                        <img src="<?= base_url($img[$item->imagen_alt]->ruta.$img[$item->imagen_alt]->nombre_archivo); ?>" class="tag-img">
-
-                        <h3><?= $item->nombre ?></h3>
-                        <p><?= $item->descripcion ?></p>
-
-                        <a href="<?= site_url('Productos/categoria/'.$item->id_categoria) ?>" class="btn-producto">
-                            Ver productos
-                        </a>
-
-                    </div>
-                <?php endforeach; ?>
-            <?php endif; ?>
-
+    <section id="productos" class="productos">
+ 
+        <div class="productos-container">
+           <h2><?= $titulos['productos']->titulo ?></h2>
+            <p class="productos-frase">
+                <?= $titulos['productos']->descripcion ?>
+            </p>
+ 
+            <div class="productos-bloques">
+                <?php if(!empty($tarjetas)): ?>
+                    <?php foreach($tarjetas as $item): ?>
+                        <div class="producto-item">
+                            <img src="<?= base_url($img[$item->imagen_alt]->ruta.$img[$item->imagen_alt]->nombre_archivo); ?>" class="tag-img">
+                            <h3><?= $item->nombre ?></h3>
+                            <p><?= $item->descripcion ?></p>
+                            <a href="#" class="btn-producto">Ver productos</a>
+                        </div>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </div>
+ 
         </div>
-
-    </div>
-
-</section>
+ 
+    </section>
     <!-- FIN PRODUCTOS -->
  
     <!-- POR QUÉ ELEGIRNOS -->
