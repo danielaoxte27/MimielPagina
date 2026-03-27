@@ -36,19 +36,21 @@ class Quienesomos_model extends CI_Model {
 
         return $query->result();
     }
-public function obtener_politica()
-{
-    return $this->db->get_where('cat_nosotros', [
-        'tipo' => 'informacion',
-        'estatus' => 1
-    ])->row();
-}
+    public function obtener_politica()
+    {
+        $this->db->where('tipo', 'información');
+        $this->db->where('estatus', 1);
+        $this->db->where('orden', 8);
+        $query = $this->db->get('cat_nosotros');
+        return $query->row();
+    }
 
-public function obtener_filosofia()
-{
-    return $this->db->get_where('cat_nosotros', [
-        'tipo' => 'informacion',
-        'estatus' => 1
-    ])->row();
-}
+    public function obtener_filosofia()
+    {
+        $this->db->where('tipo', 'información');
+        $this->db->where('estatus', 1);
+        $this->db->where('orden', 9);
+        $query = $this->db->get('cat_nosotros');
+        return $query->row();
+    }
 }
