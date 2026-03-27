@@ -1,19 +1,59 @@
 <style>
+/* HERO */
 .contacto-hero {
-    background: #fffbeb;
+    background: linear-gradient(to bottom, #F4C542, #F28C28);
     text-align: center;
-    padding: 60px 20px 40px;
-}
-.contacto-hero h1 {
-    font-size: 2.2rem;
-    font-weight: 800;
-    margin: 10px 0 8px;
-}
-.contacto-hero p {
-    color: #666;
-    font-size: 1rem;
+    padding: 60px 20px 50px;
+    position: relative;
+    overflow: hidden;
+    color: #fff;
 }
 
+.contacto-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='92' viewBox='0 0 80 92'%3E%3Cpolygon points='40,2 76,22 76,62 40,82 4,62 4,22' fill='none' stroke='%23ffffff' stroke-width='2'/%3E%3C/svg%3E");
+    background-size: 80px 92px;
+    opacity: 0.12;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.contacto-hero h1 {
+    font-size: 2.4rem;
+    font-weight: 800;
+    margin: 10px 0 8px;
+    position: relative;
+    z-index: 1;
+    color: #fff;
+}
+
+.contacto-hero p {
+    color: rgba(255,255,255,0.9);
+    font-size: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-icono {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-icono svg {
+    width: 52px;
+    height: 52px;
+    stroke: #fff;
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    margin-bottom: 10px;
+}
+
+/* CONTENIDO PRINCIPAL */
 .contacto-wrapper {
     max-width: 1100px;
     margin: 50px auto;
@@ -28,11 +68,13 @@
     flex: 1;
     min-width: 300px;
 }
+
 .contacto-form-box h2 {
     font-size: 1.6rem;
     font-weight: 800;
     margin-bottom: 6px;
 }
+
 .contacto-form-box > p {
     color: #888;
     font-size: .9rem;
@@ -45,15 +87,18 @@
     border-radius: 12px;
     padding: 28px;
 }
+
 .form-group {
     margin-bottom: 16px;
 }
+
 .form-group label {
     font-size: .85rem;
     font-weight: 600;
     display: block;
     margin-bottom: 6px;
 }
+
 .form-group input,
 .form-group select,
 .form-group textarea {
@@ -65,6 +110,7 @@
     box-sizing: border-box;
     font-family: sans-serif;
 }
+
 .form-group textarea {
     resize: vertical;
 }
@@ -75,6 +121,7 @@
     flex-wrap: wrap;
     margin-top: 8px;
 }
+
 .btn-comentario {
     flex: 1;
     padding: 13px;
@@ -89,6 +136,7 @@
     justify-content: center;
     gap: 8px;
 }
+
 .btn-queja {
     flex: 1;
     padding: 13px;
@@ -104,30 +152,35 @@
     justify-content: center;
     gap: 8px;
 }
+
 .msg-respuesta {
     margin-top: 14px;
     font-size: .9rem;
     display: none;
 }
 
+/* TARJETAS */
 .contacto-tarjetas {
     width: 320px;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
+
 .tarjeta-contacto {
     background: #fff;
     border: 1px solid #e5e7eb;
     border-radius: 12px;
     padding: 22px;
 }
+
 .tarjeta-header {
     display: flex;
     align-items: center;
     gap: 12px;
     margin-bottom: 12px;
 }
+
 .tarjeta-icono {
     background: #fef9c3;
     border-radius: 10px;
@@ -136,6 +189,7 @@
     align-items: center;
     justify-content: center;
 }
+
 .tarjeta-icono svg {
     width: 24px;
     height: 24px;
@@ -145,22 +199,26 @@
     stroke-linecap: round;
     stroke-linejoin: round;
 }
+
 .tarjeta-header h3 {
     font-weight: 700;
     font-size: 1.05rem;
     margin: 0;
 }
+
 .tarjeta-contacto .telefono-numero {
     color: #e69d00;
     font-weight: 700;
     font-size: 1.05rem;
 }
+
 .tarjeta-contacto .horario {
     color: #666;
     font-size: .85rem;
     margin: 4px 0 14px;
     line-height: 1.6;
 }
+
 .tarjeta-contacto .correo-link {
     color: #e69d00;
     font-weight: 600;
@@ -169,12 +227,14 @@
     margin-bottom: 4px;
     text-decoration: none;
 }
+
 .tarjeta-contacto .direccion {
     color: #555;
     font-size: .9rem;
     line-height: 1.6;
     margin-bottom: 14px;
 }
+
 .btn-tarjeta {
     display: inline-flex;
     align-items: center;
@@ -188,6 +248,7 @@
     color: #222;
     margin-top: 8px;
 }
+
 .btn-tarjeta svg {
     width: 16px;
     height: 16px;
@@ -197,48 +258,131 @@
     stroke-linecap: round;
     stroke-linejoin: round;
 }
+
 .btn-tarjeta:hover {
     background: #e6b800;
 }
 
+/* MAPA */
 .mapa-section {
-    max-width: 1100px;
-    margin: 20px auto 60px;
-    padding: 0 20px;
+    background: #fffbeb;
+    padding: 60px 20px;
 }
-.mapa-placeholder {
-    background: #f3f4f6;
-    border-radius: 16px;
-    height: 320px;
+
+.mapa-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    gap: 40px;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+
+.mapa-texto {
+    flex: 1;
+    min-width: 260px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+}
+
+.mapa-texto h2 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #222;
+}
+
+.mapa-texto p {
+    color: #666;
+    font-size: .95rem;
+    line-height: 1.6;
+}
+
+.mapa-direcciones {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 8px;
+}
+
+a.mapa-dir-item {
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+a.mapa-dir-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    border-color: #e69d00;
+}
+
+a.mapa-dir-item strong {
+    color: #222;
+}
+
+a.mapa-dir-item span {
+    color: #888;
+}
+
+.mapa-dir-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 14px 16px;
+}
+
+.mapa-dir-icono {
+    background: #fef9c3;
+    border-radius: 8px;
+    padding: 8px;
+    display: flex;
     align-items: center;
     justify-content: center;
-    color: #9ca3af;
+    flex-shrink: 0;
 }
-.mapa-placeholder svg {
-    width: 48px;
-    height: 48px;
-    stroke: #9ca3af;
-    fill: none;
-    stroke-width: 1.5;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-}
-.mapa-placeholder p { font-weight: 600; margin-top: 10px; }
-.mapa-placeholder small { font-size: .85rem; }
 
-.hero-icono svg {
-    width: 48px;
-    height: 48px;
+.mapa-dir-icono svg {
+    width: 20px;
+    height: 20px;
     stroke: #e69d00;
     fill: none;
-    stroke-width: 1.8;
+    stroke-width: 2;
     stroke-linecap: round;
     stroke-linejoin: round;
-    margin-bottom: 10px;
 }
 
+.mapa-dir-item strong {
+    display: block;
+    font-size: .95rem;
+    color: #222;
+    font-weight: 700;
+}
+
+.mapa-dir-item span {
+    font-size: .85rem;
+    color: #888;
+}
+
+.mapa-wrapper {
+    flex: 2;
+    min-width: 300px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+@media(max-width: 768px) {
+    .mapa-inner {
+        flex-direction: column;
+    }
+    .contacto-tarjetas {
+        width: 100%;
+    }
+}
 </style>
 
 <!-- HERO -->
@@ -349,7 +493,7 @@
             </div>
             <a href="mailto:ventas@mimiel.com.mx" class="correo-link">ventas@mimiel.com.mx</a>
             <p class="horario">Respuesta en menos de 24 horas</p>
-            <a href="mailto:info@mimiel.com.mx" class="btn-tarjeta">
+            <a href="mailto:ventas@mimiel.com.mx" class="btn-tarjeta">
                 <svg viewBox="0 0 24 24">
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                     <polyline points="22,6 12,13 2,6"/>
@@ -369,14 +513,11 @@
                 </div>
                 <h3>WhatsApp</h3>
             </div>
-
             <p class="telefono-numero">+52 1 999 569 6291</p>
-
             <p class="horario">
                 Atención directa por WhatsApp<br>
                 Respuesta rápida
             </p>
-
             <a href="https://wa.me/c/5219995696291" target="_blank" class="btn-tarjeta">
                 <svg viewBox="0 0 24 24">
                     <path d="M21 11.5a8.5 8.5 0 0 1-12.9 7.3L3 21l2.3-5.1A8.5 8.5 0 1 1 21 11.5z"/>
@@ -390,14 +531,52 @@
 
 <!-- MAPA -->
 <section class="mapa-section">
-    <div class="mapa-placeholder">
-        <svg viewBox="0 0 24 24">
-            <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/>
-            <line x1="8" y1="2" x2="8" y2="18"/>
-            <line x1="16" y1="6" x2="16" y2="22"/>
-        </svg>
-        <p>Mapa de Google Maps</p>
-        <small>Aquí se integrará el mapa interactivo</small>
+    <div class="mapa-inner">
+        <div class="mapa-texto">
+            <h2>Nuestras Ubicaciones</h2>
+            <p>Visítanos en cualquiera de nuestras sucursales. Estamos para atenderte.</p>
+            <div class="mapa-direcciones">
+
+                <a href="https://www.google.com/maps/search/?api=1&query=Mimiel+Itzimna+Merida+Yucatan" target="_blank" class="mapa-dir-item">
+                    <div class="mapa-dir-icono">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <strong>Mimiel Itzimná</strong>
+                        <span>Mérida, Yucatán</span>
+                    </div>
+                </a>
+
+                <a href="https://www.google.com/maps/search/?api=1&query=Mimiel+Merida+Yucatan" target="_blank" class="mapa-dir-item">
+                    <div class="mapa-dir-icono">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <strong>Mimiel</strong>
+                        <span>Mérida, Yucatán</span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+
+        <div class="mapa-wrapper">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d59587.26209871918!2d-89.643991!3d21.0245267!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sMimiel!5e0!3m2!1ses-419!2smx!4v1774634462928!5m2!1ses-419!2smx"
+                width="100%"
+                height="100%"
+                style="border:0; display:block; min-height:380px;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
     </div>
 </section>
 
@@ -434,7 +613,7 @@ function enviarFormulario(tipo) {
     .then(data => {
         resp.style.display = 'block';
         resp.style.color   = '#16a34a';
-        resp.textContent   = '✅ ' + data.msg;
+        resp.textContent   = 'Mensaje enviado correctamente';
     })
     .catch(() => {
         resp.style.display = 'block';
