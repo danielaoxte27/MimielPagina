@@ -15,12 +15,12 @@
             box-sizing:border-box;
             font-family:sans-serif;
         }
-
+ 
         body{
             background-color:#f5f5f5;
             font-size:15px;
         }
-
+ 
         header{
             display:flex;
             justify-content:space-between;
@@ -33,7 +33,7 @@
             top:0;
             z-index:1000;
         }
-
+ 
         header a:hover{
             outline: 3px solid rgb(237, 184, 25);
             outline-offset: 3px;
@@ -41,6 +41,7 @@
             padding: 5px 15px;
         }
 
+ 
         header a.activo, .nav-link.activo {
             outline: 3px solid rgb(237, 184, 25) !important;
             outline-offset: 3px;
@@ -62,23 +63,23 @@
             padding: 5px 15px;
             border: 3px solid transparent;
             transition: 0.3s;
-        }   
-
+        }  
+ 
         header .logo:hover{
-            outline: none; 
+            outline: none;
             padding: 0;
         }
-
+ 
         header a:focus{
             outline: 3px solid rgb(237, 184, 25);
             outline-offset: 3px;
             border-radius: 10px;
             padding: 5px 15px;
         }
-
+ 
         .logo img{
             height:70px;
-        } 
+        }
         nav{
            display:flex;
            align-items:center;
@@ -86,25 +87,25 @@
            justify-content: flex-end !important;
            width: auto;
         }
-
+ 
         .nav-link{
             text-decoration:none;
             color:#000000;
             font-weight:bold;
             font-size:16px;
             transition:0.3s;
-            padding: 5px 10px;
+            padding: 5px 8px;
         }
         .nav-link{
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .nav-link:hover{
             color: #e69d00;
-            transform: translateY(-10px);
+            transform: translateY(-2px);
             box-shadow:0 15px 25px rgba(0,0,0,0.05);
             transition:transform 0..3s ease ;
         }
-
+ 
         .nav-link.activo{
             outline: 3px solid rgb(237, 184, 25) !important;
             outline-offset: 3px !important;
@@ -113,24 +114,30 @@
             color: #e69d00 !important;
             font-weight: bold !important;
         }
-
+ 
         .btn-carrito{
             display:flex;
             align-items:center;
             gap:8px;
             background-color: #e69d00;
             color:#ffffff;
-            padding:8px 18px;
+            padding:8px 12px;
             border-radius:8px;
             text-decoration:none;
             font-weight:bold;
             font-size:16px;
             transition:0.3s;
         }
-
+ 
         .btn-carrito:hover{
             background-color: #fabc12;
         }
+                .nav-superior{
+    display:flex;
+    align-items:center;
+    width:100%;
+    gap:10px;
+}
        .botones-nav{
             display:flex;
             flex-direction:row;
@@ -140,7 +147,7 @@
             gap:15px;
         }
         .botones-nav a{
-            width:200px;
+            width:auto;
             justify-content:center;
         }
         .btn-login{
@@ -156,10 +163,10 @@
                 gap: 0;
             }
             nav{
-                flex-wrap: wrap;
+                flex-wrap: nowrap;
             }          
         }
-        
+       
         .mision{
             background:#FFF9E6;
             padding:40px 20px;
@@ -217,7 +224,7 @@
         .mision-item:hover{
             transform: translateY(-10px);
             box-shadow:0 15px 25px rgba(0,0,0,0.05);
-            transition:transform 0..3s ease ;
+            transition:transform 0.3s ease ;
         }
  
         .icono-mision{
@@ -693,7 +700,7 @@
  
     <link rel="stylesheet" href="<?= base_url('assets/css/accesibilidad.css'); ?>">
 </head>
-
+ 
 <body>
  
 <!-- Ícono flotante -->
@@ -746,23 +753,26 @@
         <button onclick="resetAccesibilidad()">Reiniciar</button>
     </div>
 </div>
-
+ 
 <header>
     <a href="<?= site_url('Welcome/principal') ?>" class="logo">
         <img src="<?= base_url($img['logo']->ruta.$img['logo']->nombre_archivo); ?>" alt="Logo de la empresa">
     </a>
-
+ 
     <div id="menu-toggle" class="menu-toggle">☰</div>
-
-    <nav id="navbar">
+ 
+    <!-- FILA ARRIBA -->
+    <div class="nav-superior">
+        
         <?php if(!empty($secciones)): ?>
             <?php foreach($secciones as $seccion): ?>
-                <a href="<?= $seccion->href ?>" class="nav-link ">
+                <a href="<?= site_url($seccion->href) ?>" class="nav-link">
                     <?= $seccion->nombre_seccion ?>
                 </a>
             <?php endforeach; ?>
         <?php endif; ?>
-
+        
+ 
         <div class="botones-nav">
             <a href="" class="btn-carrito">
                 Agregar al carrito
@@ -772,7 +782,7 @@
                     <path d="M1 1h4l2.6 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.5L23 6H6"></path>
                 </svg>
             </a>
-
+ 
             <a href="<?= site_url('Welcome/login') ?>" class="btn-carrito btn-login">
                 Iniciar sesión
                 <svg class="icono-carrito" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
@@ -786,7 +796,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const navLinks = document.querySelectorAll('.nav-link');
-
+ 
             navLinks.forEach(link => {
                 link.addEventListener('click', function() {
                      navLinks.forEach(l => l.classList.remove('activo'));
@@ -795,5 +805,6 @@
             });
         });
 </script>
+</div>
+        </nav>
 </header>
-
