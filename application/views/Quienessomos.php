@@ -1,17 +1,15 @@
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
 .qs-page {
-    font-family: 'Poppins', sans-serif;
+    font-family: sans-serif;
     background: #fafaf8;
     margin: 0;
     color: #1a1a1a;
 }
 
-
+/* HERO */
 .qs-hero {
     position: relative;
-    background: linear-gradient(135deg, #f9a825 0%, #f57c00 60%, #e65100 100%);
+    background: linear-gradient(to bottom, #F4C542, #F28C28);
     padding: 120px 20px 140px;
     text-align: center;
     overflow: hidden;
@@ -66,9 +64,10 @@
     line-height: 0;
 }
 
+/* STATS */
 .qs-stats {
     background: white;
-    padding: 0 20px 60px;
+    padding: 0 20px 80px;
     margin-top: -2px;
 }
 
@@ -87,75 +86,90 @@
 
 .qs-stat {
     background: white;
-    padding: 36px 20px;
+    padding: 40px 20px;
     text-align: center;
+    transition: background 0.3s;
+}
+
+.qs-stat:hover {
+    background: #fffbf2;
 }
 
 .qs-stat-num {
-    font-size: 42px;
+    font-size: 44px;
     font-weight: 700;
-    color: #f57c00;
+    color: #F28C28;
     line-height: 1;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
 }
 
 .qs-stat-label {
     font-size: 13px;
-    color: #888;
+    color: #999;
     font-weight: 400;
     letter-spacing: 0.5px;
 }
 
+/* SECCIONES BASE */
 .qs-section {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 0 20px 90px;
+    padding: 0 20px 80px;
+}
+
+.qs-section-alt {
+    background: #fffbf2;
+    padding: 80px 20px;
+    margin-bottom: 0;
+}
+
+.qs-section-alt-inner {
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
 .qs-label {
     display: inline-block;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 3px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 4px;
     text-transform: uppercase;
-    color: #f57c00;
-    margin-bottom: 12px;
+    color: #F28C28;
+    margin-bottom: 10px;
 }
 
 .qs-title {
-    font-size: 38px;
+    font-size: 36px;
     font-weight: 700;
     color: #1a1a1a;
-    margin: 0 0 18px;
+    margin: 0 0 16px;
     line-height: 1.2;
 }
 
-.qs-subtitle {
-    font-size: 16px;
-    color: #777;
-    line-height: 1.8;
-    font-weight: 300;
-    max-width: 560px;
-}
-
-
+/* HISTORIA */
 .qs-historia {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 70px;
+    gap: 80px;
     align-items: center;
-    padding: 70px 0;
+    padding: 60px 0 20px;
 }
 
 .qs-historia-img {
     position: relative;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
 }
 
 .qs-historia-img img {
     width: 100%;
-    height: 440px;
+    height: 100%;
+    min-height: 300px;
+    max-height: 500px;
     object-fit: cover;
     border-radius: 24px;
+    display: block;
 }
 
 .qs-historia-img::after {
@@ -165,105 +179,38 @@
     right: -16px;
     width: 100%;
     height: 100%;
-    border: 2px solid #f9a825;
+    border: 2px solid #F4C542;
     border-radius: 24px;
     z-index: -1;
 }
 
 .qs-historia-texto {
-    font-size: 16px;
+    font-size: 15.5px;
     color: #555;
     line-height: 1.9;
     font-weight: 300;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
-
-.qs-timeline-wrap {
-    background: linear-gradient(135deg, #fff8ec, #fff3e0);
-    border-radius: 28px;
-    padding: 55px 40px;
-    margin-bottom: 90px;
+.qs-historia-texto p {
+    margin: 0 0 16px;
 }
 
-.qs-timeline-title {
-    text-align: center;
-    margin-bottom: 45px;
-}
-
-.qs-timeline {
-    display: flex;
-    justify-content: center;
-    gap: 0;
-    flex-wrap: wrap;
-    position: relative;
-}
-
-.qs-timeline::before {
-    content: '';
-    position: absolute;
-    top: 28px;
-    left: 10%;
-    width: 80%;
-    height: 2px;
-    background: linear-gradient(90deg, #f9a825, #f57c00);
-    opacity: 0.3;
-}
-
-.qs-timeline-card {
-    background: white;
-    border-radius: 18px;
-    padding: 28px 22px;
-    width: 200px;
-    text-align: center;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.07);
-    margin: 10px;
-    position: relative;
-    transition: 0.3s ease;
-}
-
-.qs-timeline-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 18px 40px rgba(245,124,0,0.15);
-}
-
-.qs-timeline-dot {
-    width: 12px;
-    height: 12px;
-    background: linear-gradient(135deg, #f9a825, #f57c00);
-    border-radius: 50%;
-    margin: 0 auto 16px;
-    box-shadow: 0 0 0 4px rgba(249,168,37,0.2);
-}
-
-.qs-timeline-card h3 {
-    font-size: 15px;
-    font-weight: 600;
-    color: #1a1a1a;
-    margin: 0 0 8px;
-}
-
-.qs-timeline-card p {
-    font-size: 13px;
-    color: #888;
-    line-height: 1.5;
-    margin: 0;
-}
-
-
-
+/* VALORES */
 .qs-valores-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    margin-top: 50px;
+    gap: 22px;
+    margin-top: 40px;
 }
 
 .qs-valor-card {
     background: white;
-    border-radius: 22px;
-    padding: 36px 28px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.05);
-    border: 1px solid #f5f0e8;
+    border-radius: 20px;
+    padding: 32px 26px;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.05);
+    border: 1px solid #f0ebe0;
     transition: 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -274,7 +221,7 @@
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 3px;
-    background: linear-gradient(90deg, #f9a825, #f57c00);
+    background: linear-gradient(90deg, #F4C542, #F28C28);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.35s ease;
@@ -282,7 +229,7 @@
 
 .qs-valor-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 20px 50px rgba(245,124,0,0.1);
+    box-shadow: 0 18px 44px rgba(242,140,40,0.12);
 }
 
 .qs-valor-card:hover::before {
@@ -290,70 +237,90 @@
 }
 
 .qs-valor-icon {
-    width: 60px;
-    height: 60px;
+    width: 56px;
+    height: 56px;
     background: linear-gradient(135deg, #fff3e0, #ffe0b2);
-    border-radius: 16px;
+    border-radius: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 }
 
 .qs-valor-icon img {
-    width: 34px;
-    height: 34px;
+    width: 32px;
+    height: 32px;
     object-fit: contain;
 }
 
 .qs-valor-card h3 {
-    font-size: 17px;
-    font-weight: 600;
+    font-size: 16px;
+    font-weight: 700;
     color: #1a1a1a;
     margin: 0 0 10px;
 }
 
 .qs-valor-card p {
-    font-size: 14px;
+    font-size: 13.5px;
     color: #777;
     line-height: 1.7;
     margin: 0;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
-
+/* POLÍTICA Y FILOSOFÍA */
 .qs-politicas {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 24px;
-    margin-top: 50px;
+    margin-top: 40px;
 }
 
 .qs-politica-card {
     background: white;
     border-radius: 22px;
-    padding: 36px 32px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.05);
-    border: 1px solid #f5f0e8;
+    padding: 40px 36px;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.05);
+    border: 1px solid #f0ebe0;
     transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.qs-politica-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #F4C542, #F28C28);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
 }
 
 .qs-politica-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 16px 40px rgba(245,124,0,0.1);
+    box-shadow: 0 16px 40px rgba(242,140,40,0.1);
+}
+
+.qs-politica-card:hover::after {
+    transform: scaleX(1);
 }
 
 .qs-politica-num {
-    font-size: 48px;
-    font-weight: 700;
-    color: #f9a825;
-    opacity: 0.25;
+    font-size: 56px;
+    font-weight: 800;
+    color: #F4C542;
+    opacity: 0.2;
     line-height: 1;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
+    letter-spacing: -2px;
 }
 
 .qs-politica-card h2 {
-    font-size: 19px;
-    font-weight: 600;
+    font-size: 18px;
+    font-weight: 700;
     color: #1a1a1a;
     margin: 0 0 12px;
 }
@@ -363,65 +330,11 @@
     color: #777;
     line-height: 1.8;
     margin: 0;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
-/*  */
-.qs-cta {
-    background: linear-gradient(135deg, #f9a825, #f57c00);
-    margin: 0 20px 90px;
-    border-radius: 28px;
-    padding: 70px 40px;
-    text-align: center;
-    max-width: 1060px;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-    overflow: hidden;
-}
-
-.qs-cta::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='70' viewBox='0 0 80 92'%3E%3Cpolygon points='40,2 76,22 76,62 40,82 4,62 4,22' fill='none' stroke='%23ffffff' stroke-width='1.5'/%3E%3C/svg%3E");
-    background-size: 60px 70px;
-    opacity: 0.07;
-    pointer-events: none;
-}
-
-.qs-cta h2 {
-    font-size: 36px;
-    font-weight: 700;
-    color: white;
-    margin: 0 0 14px;
-}
-
-.qs-cta p {
-    font-size: 16px;
-    color: rgba(255,255,255,0.85);
-    margin: 0 0 32px;
-    font-weight: 300;
-}
-
-.qs-cta-btn {
-    display: inline-block;
-    background: white;
-    color: #f57c00;
-    font-size: 15px;
-    font-weight: 600;
-    padding: 14px 36px;
-    border-radius: 50px;
-    text-decoration: none;
-    transition: 0.3s;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-}
-
-.qs-cta-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 14px 40px rgba(0,0,0,0.2);
-}
-
-
+/* RESPONSIVE */
 @media(max-width: 900px){
     .qs-hero h1 { font-size: 38px; }
     .qs-historia { grid-template-columns: 1fr; gap: 40px; }
@@ -429,23 +342,15 @@
     .qs-valores-grid { grid-template-columns: 1fr 1fr; }
     .qs-politicas { grid-template-columns: 1fr; }
     .qs-stats-grid { grid-template-columns: 1fr; }
-    .qs-timeline::before { display: none; }
 }
 
 @media(max-width: 600px){
     .qs-hero h1 { font-size: 30px; }
     .qs-valores-grid { grid-template-columns: 1fr; }
-    .qs-title { font-size: 28px; }
-}
-.qs-historia-texto,
-.qs-valor-card p,
-.qs-politica-card p,
-.qs-cta p {
-    text-align: justify;
-    text-justify: inter-word;
+    .qs-title { font-size: 26px; }
+    .qs-politica-card { padding: 28px 22px; }
 }
 </style>
-
 
 <div class="qs-page">
 
@@ -461,7 +366,7 @@
     </div>
 </section>
 
-
+<!-- STATS -->
 <section class="qs-stats">
     <div class="qs-stats-grid">
         <div class="qs-stat">
@@ -479,56 +384,50 @@
     </div>
 </section>
 
+<!-- HISTORIA -->
 <section class="qs-section">
     <div class="qs-historia">
-
         <div class="qs-historia-img">
             <?php if(isset($img['Historia'])){ ?>
                 <img src="<?= base_url($img['Historia']->ruta.'/'.$img['Historia']->nombre_archivo); ?>">
             <?php } ?>
         </div>
-
         <div>
             <span class="qs-label">Nuestra historia</span>
             <h2 class="qs-title"><?= $historia->nombre ?></h2>
-
             <div class="qs-historia-texto">
                 <?= nl2br($historia->descripcion) ?>
             </div>
         </div>
-
     </div>
 </section>
 
-<section class="qs-section">
-    <span class="qs-label">Lo que nos mueve</span>
-    <h2 class="qs-title">Nuestros valores</h2>
-
-    <div class="qs-valores-grid">
-        <?php foreach($valores as $v){ ?>
-            <div class="qs-valor-card">
-
-                <div class="qs-valor-icon">
-                    <?php if(isset($img[$v->nombre])){ ?>
-                        <img src="<?= base_url($img[$v->nombre]->ruta.'/'.$img[$v->nombre]->nombre_archivo); ?>">
-                    <?php } ?>
+<!-- VALORES -->
+<section class="qs-section-alt">
+    <div class="qs-section-alt-inner">
+        <span class="qs-label">Lo que nos mueve</span>
+        <h2 class="qs-title">Nuestros valores</h2>
+        <div class="qs-valores-grid">
+            <?php foreach($valores as $v){ ?>
+                <div class="qs-valor-card">
+                    <div class="qs-valor-icon">
+                        <?php if(isset($img[$v->nombre])){ ?>
+                            <img src="<?= base_url($img[$v->nombre]->ruta.'/'.$img[$v->nombre]->nombre_archivo); ?>">
+                        <?php } ?>
+                    </div>
+                    <h3><?= $v->nombre ?></h3>
+                    <p><?= $v->descripcion ?></p>
                 </div>
-
-                <h3><?= $v->nombre ?></h3>
-                <p><?= $v->descripcion ?></p>
-
-            </div>
-        <?php } ?>
+            <?php } ?>
+        </div>
     </div>
 </section>
 
-
-<section class="qs-section">
+<!-- POLÍTICA Y FILOSOFÍA -->
+<section class="qs-section" style="padding-top: 80px;">
     <span class="qs-label">Nuestra esencia</span>
     <h2 class="qs-title">Política y Filosofía</h2>
-
     <div class="qs-politicas">
-
         <?php if($politica){ ?>
         <div class="qs-politica-card">
             <div class="qs-politica-num">P</div>
@@ -536,7 +435,6 @@
             <p><?= $politica->descripcion ?></p>
         </div>
         <?php } ?>
-
         <?php if($filosofia){ ?>
         <div class="qs-politica-card">
             <div class="qs-politica-num">F</div>
@@ -544,11 +442,7 @@
             <p><?= $filosofia->descripcion ?></p>
         </div>
         <?php } ?>
-
     </div>
 </section>
-
-
-</div>
 
 </div>
