@@ -12,3 +12,31 @@ ERROR - 2026-03-27 19:13:30 --> Severity: Warning --> Attempt to read property "
 ERROR - 2026-03-27 19:13:30 --> Severity: Warning --> Attempt to read property "descripcion" on null C:\laragon\www\MimielPagina\application\views\Quienessomos.php 496
 ERROR - 2026-03-27 19:13:30 --> Severity: 8192 --> nl2br(): Passing null to parameter #1 ($string) of type string is deprecated C:\laragon\www\MimielPagina\application\views\Quienessomos.php 496
 ERROR - 2026-03-27 19:50:47 --> 404 Page Not Found: Productos/todos
+ERROR - 2026-03-27 20:02:35 --> Severity: Warning --> Undefined property: stdClass::$id_categoria C:\laragon\www\MimielPagina\application\views\principal.php 78
+ERROR - 2026-03-27 20:02:35 --> Severity: Warning --> Undefined property: stdClass::$id_categoria C:\laragon\www\MimielPagina\application\views\principal.php 78
+ERROR - 2026-03-27 20:02:35 --> Severity: Warning --> Undefined property: stdClass::$id_categoria C:\laragon\www\MimielPagina\application\views\principal.php 78
+ERROR - 2026-03-27 20:02:35 --> Severity: Warning --> Undefined property: stdClass::$id_categoria C:\laragon\www\MimielPagina\application\views\principal.php 78
+ERROR - 2026-03-27 20:03:43 --> Severity: Warning --> Undefined property: stdClass::$id_categoria C:\laragon\www\MimielPagina\application\views\principal.php 78
+ERROR - 2026-03-27 20:03:43 --> Severity: Warning --> Undefined property: stdClass::$id_categoria C:\laragon\www\MimielPagina\application\views\principal.php 78
+ERROR - 2026-03-27 20:03:43 --> Severity: Warning --> Undefined property: stdClass::$id_categoria C:\laragon\www\MimielPagina\application\views\principal.php 78
+ERROR - 2026-03-27 20:03:43 --> Severity: Warning --> Undefined property: stdClass::$id_categoria C:\laragon\www\MimielPagina\application\views\principal.php 78
+ERROR - 2026-03-27 20:05:28 --> Severity: Warning --> Undefined property: stdClass::$id_categoria C:\laragon\www\MimielPagina\application\views\principal.php 78
+ERROR - 2026-03-27 20:05:28 --> Severity: Warning --> Undefined property: stdClass::$id_categoria C:\laragon\www\MimielPagina\application\views\principal.php 78
+ERROR - 2026-03-27 20:05:28 --> Severity: Warning --> Undefined property: stdClass::$id_categoria C:\laragon\www\MimielPagina\application\views\principal.php 78
+ERROR - 2026-03-27 20:05:28 --> Severity: Warning --> Undefined property: stdClass::$id_categoria C:\laragon\www\MimielPagina\application\views\principal.php 78
+ERROR - 2026-03-27 20:11:10 --> Severity: Warning --> Undefined property: stdClass::$id_categoria C:\laragon\www\MimielPagina\application\views\principal.php 78
+ERROR - 2026-03-27 20:11:10 --> Severity: Warning --> Undefined property: stdClass::$id_categoria C:\laragon\www\MimielPagina\application\views\principal.php 78
+ERROR - 2026-03-27 20:11:10 --> Severity: Warning --> Undefined property: stdClass::$id_categoria C:\laragon\www\MimielPagina\application\views\principal.php 78
+ERROR - 2026-03-27 20:11:10 --> Severity: Warning --> Undefined property: stdClass::$id_categoria C:\laragon\www\MimielPagina\application\views\principal.php 78
+ERROR - 2026-03-27 20:11:11 --> Severity: Warning --> Undefined property: stdClass::$id_categoria C:\laragon\www\MimielPagina\application\views\principal.php 78
+ERROR - 2026-03-27 20:11:11 --> Severity: Warning --> Undefined property: stdClass::$id_categoria C:\laragon\www\MimielPagina\application\views\principal.php 78
+ERROR - 2026-03-27 20:11:11 --> Severity: Warning --> Undefined property: stdClass::$id_categoria C:\laragon\www\MimielPagina\application\views\principal.php 78
+ERROR - 2026-03-27 20:11:11 --> Severity: Warning --> Undefined property: stdClass::$id_categoria C:\laragon\www\MimielPagina\application\views\principal.php 78
+ERROR - 2026-03-27 20:11:12 --> Severity: Warning --> Undefined property: stdClass::$id_categoria C:\laragon\www\MimielPagina\application\views\principal.php 78
+ERROR - 2026-03-27 20:11:12 --> Severity: Warning --> Undefined property: stdClass::$id_categoria C:\laragon\www\MimielPagina\application\views\principal.php 78
+ERROR - 2026-03-27 20:11:12 --> Severity: Warning --> Undefined property: stdClass::$id_categoria C:\laragon\www\MimielPagina\application\views\principal.php 78
+ERROR - 2026-03-27 20:11:12 --> Severity: Warning --> Undefined property: stdClass::$id_categoria C:\laragon\www\MimielPagina\application\views\principal.php 78
+ERROR - 2026-03-27 20:11:12 --> Severity: Warning --> Undefined property: stdClass::$id_categoria C:\laragon\www\MimielPagina\application\views\principal.php 78
+ERROR - 2026-03-27 20:11:12 --> Severity: Warning --> Undefined property: stdClass::$id_categoria C:\laragon\www\MimielPagina\application\views\principal.php 78
+ERROR - 2026-03-27 20:11:12 --> Severity: Warning --> Undefined property: stdClass::$id_categoria C:\laragon\www\MimielPagina\application\views\principal.php 78
+ERROR - 2026-03-27 20:11:12 --> Severity: Warning --> Undefined property: stdClass::$id_categoria C:\laragon\www\MimielPagina\application\views\principal.php 78
