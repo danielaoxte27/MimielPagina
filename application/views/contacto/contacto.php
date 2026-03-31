@@ -385,7 +385,7 @@ a.mapa-dir-item span {
 }
 </style>
 
-<!-- HERO — viene de cat_contacto_hero -->
+<!-- HERO -->
 <section class="contacto-hero">
     <div class="hero-icono">
         <svg viewBox="0 0 24 24">
@@ -454,7 +454,7 @@ a.mapa-dir-item span {
         </div>
     </div>
 
-    <!-- TARJETAS — viene de cat_contacto_canales -->
+    <!-- TARJETAS -->
     <div class="contacto-tarjetas">
 
         <?php foreach($canales as $canal): ?>
@@ -521,7 +521,7 @@ a.mapa-dir-item span {
     </div>
 </section>
 
-<!-- MAPA — viene de cat_contacto_sucursales -->
+<!-- MAPA -->
 <section class="mapa-section">
     <div class="mapa-inner">
         <div class="mapa-texto">
