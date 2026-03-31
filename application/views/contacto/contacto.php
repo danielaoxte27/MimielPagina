@@ -385,7 +385,7 @@ a.mapa-dir-item span {
 }
 </style>
 
-<!-- HERO -->
+<!-- HERO — viene de cat_contacto_hero -->
 <section class="contacto-hero">
     <div class="hero-icono">
         <svg viewBox="0 0 24 24">
@@ -394,14 +394,14 @@ a.mapa-dir-item span {
             <path d="M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>
         </svg>
     </div>
-    <h1>Contáctanos</h1>
-    <p>Estamos aquí para ayudarte. Escríbenos o visítanos</p>
+    <h1><?= $hero->titulo ?></h1>
+    <p><?= $hero->subtitulo ?></p>
 </section>
 
 <!-- CONTENIDO -->
 <section class="contacto-wrapper">
 
-    <!-- FORMULARIO -->
+    <!-- FORMULARIO (no cambia, solo recibe datos del usuario) -->
     <div class="contacto-form-box">
         <h2>Envíanos un mensaje</h2>
         <p>Completa el formulario y nos pondremos en contacto contigo lo antes posible</p>
@@ -454,82 +454,74 @@ a.mapa-dir-item span {
         </div>
     </div>
 
-    <!-- TARJETAS -->
+    <!-- TARJETAS — viene de cat_contacto_canales -->
     <div class="contacto-tarjetas">
 
-        <!-- Teléfono -->
+        <?php foreach($canales as $canal): ?>
         <div class="tarjeta-contacto">
             <div class="tarjeta-header">
                 <div class="tarjeta-icono">
+
+                    <?php if($canal->tipo === 'telefono'): ?>
                     <svg viewBox="0 0 24 24">
                         <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
                     </svg>
-                </div>
-                <h3>Teléfono</h3>
-            </div>
-            <p class="telefono-numero">(999) 123-4567</p>
-            <p class="horario">
-                Lunes a Viernes: 9:00 AM - 6:00 PM<br>
-                Sábados: 9:00 AM - 2:00 PM
-            </p>
-            <a href="tel:9991234567" class="btn-tarjeta">
-                <svg viewBox="0 0 24 24">
-                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
-                </svg>
-                Llamar ahora
-            </a>
-        </div>
 
-        <!-- Correo -->
-        <div class="tarjeta-contacto">
-            <div class="tarjeta-header">
-                <div class="tarjeta-icono">
+                    <?php elseif($canal->tipo === 'correo'): ?>
                     <svg viewBox="0 0 24 24">
                         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                         <polyline points="22,6 12,13 2,6"/>
                     </svg>
-                </div>
-                <h3>Correo Electrónico</h3>
-            </div>
-            <a href="mailto:ventas@mimiel.com.mx" class="correo-link">ventas@mimiel.com.mx</a>
-            <p class="horario">Respuesta en menos de 24 horas</p>
-            <a href="mailto:ventas@mimiel.com.mx" class="btn-tarjeta">
-                <svg viewBox="0 0 24 24">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                    <polyline points="22,6 12,13 2,6"/>
-                </svg>
-                Enviar correo
-            </a>
-        </div>
 
-        <!-- WhatsApp -->
-        <div class="tarjeta-contacto">
-            <div class="tarjeta-header">
-                <div class="tarjeta-icono">
+                    <?php elseif($canal->tipo === 'whatsapp'): ?>
                     <svg viewBox="0 0 24 24">
                         <path d="M21 11.5a8.5 8.5 0 0 1-12.9 7.3L3 21l2.3-5.1A8.5 8.5 0 1 1 21 11.5z"/>
                         <path d="M16.2 13.3c-.2-.1-1.3-.6-1.5-.7-.2-.1-.4-.1-.5.1-.1.2-.6.7-.7.8-.1.1-.3.1-.5 0-.2-.1-.9-.3-1.7-1-.6-.5-1-1.1-1.1-1.3-.1-.2 0-.3.1-.4.1-.1.2-.3.3-.4.1-.1.1-.2.2-.3.1-.1 0-.3 0-.4 0-.1-.5-1.2-.7-1.6-.2-.4-.4-.3-.5-.3h-.4c-.1 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.5 2.3 3.7 3.2.5.2.9.3 1.2.4.5.1 1 .1 1.4.1.4-.1 1.3-.5 1.5-1 .2-.5.2-.9.1-1-.1-.1-.3-.2-.5-.3z"/>
                     </svg>
+                    <?php endif; ?>
+
                 </div>
-                <h3>WhatsApp</h3>
+                <h3><?= $canal->titulo ?></h3>
             </div>
-            <p class="telefono-numero">+52 1 999 569 6291</p>
-            <p class="horario">
-                Atención directa por WhatsApp<br>
-                Respuesta rápida
-            </p>
-            <a href="https://wa.me/c/5219995696291" target="_blank" class="btn-tarjeta">
+
+            <?php if($canal->tipo === 'correo'): ?>
+                <a href="<?= $canal->url_accion ?>" class="correo-link"><?= $canal->valor ?></a>
+            <?php else: ?>
+                <p class="telefono-numero"><?= $canal->valor ?></p>
+            <?php endif; ?>
+
+            <p class="horario"><?= nl2br($canal->descripcion) ?></p>
+
+            <a href="<?= $canal->url_accion ?>"
+               class="btn-tarjeta"
+               <?= ($canal->tipo === 'whatsapp') ? 'target="_blank"' : '' ?>>
+
+                <?php if($canal->tipo === 'telefono'): ?>
+                <svg viewBox="0 0 24 24">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+
+                <?php elseif($canal->tipo === 'correo'): ?>
+                <svg viewBox="0 0 24 24">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                    <polyline points="22,6 12,13 2,6"/>
+                </svg>
+
+                <?php elseif($canal->tipo === 'whatsapp'): ?>
                 <svg viewBox="0 0 24 24">
                     <path d="M21 11.5a8.5 8.5 0 0 1-12.9 7.3L3 21l2.3-5.1A8.5 8.5 0 1 1 21 11.5z"/>
                 </svg>
-                Enviar mensaje
+                <?php endif; ?>
+
+                <?= $canal->texto_boton ?>
             </a>
         </div>
+        <?php endforeach; ?>
 
     </div>
 </section>
 
-<!-- MAPA -->
+<!-- MAPA — viene de cat_contacto_sucursales -->
 <section class="mapa-section">
     <div class="mapa-inner">
         <div class="mapa-texto">
@@ -537,7 +529,8 @@ a.mapa-dir-item span {
             <p>Visítanos en cualquiera de nuestras sucursales. Estamos para atenderte.</p>
             <div class="mapa-direcciones">
 
-                <a href="https://www.google.com/maps/search/?api=1&query=Mimiel+Itzimna+Merida+Yucatan" target="_blank" class="mapa-dir-item">
+                <?php foreach($sucursales as $suc): ?>
+                <a href="<?= $suc->url_maps ?>" target="_blank" class="mapa-dir-item">
                     <div class="mapa-dir-icono">
                         <svg viewBox="0 0 24 24">
                             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
@@ -545,23 +538,11 @@ a.mapa-dir-item span {
                         </svg>
                     </div>
                     <div>
-                        <strong>Mimiel Itzimná</strong>
-                        <span>Mérida, Yucatán</span>
+                        <strong><?= $suc->nombre ?></strong>
+                        <span><?= $suc->ciudad ?>, <?= $suc->estado ?></span>
                     </div>
                 </a>
-
-                <a href="https://www.google.com/maps/search/?api=1&query=Mimiel+Merida+Yucatan" target="_blank" class="mapa-dir-item">
-                    <div class="mapa-dir-icono">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                            <circle cx="12" cy="10" r="3"/>
-                        </svg>
-                    </div>
-                    <div>
-                        <strong>Mimiel</strong>
-                        <span>Mérida, Yucatán</span>
-                    </div>
-                </a>
+                <?php endforeach; ?>
 
             </div>
         </div>

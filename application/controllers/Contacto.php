@@ -33,6 +33,10 @@ class Contacto extends CI_Controller {
         $data['img']      = $this->cargar_imagenes();
         $data['secciones'] = $this->Pagina_model->consultar_secciones_activas();
         $data['footer']   = $this->cargar_footer();
+        $data['hero']       = $this->Contacto_model->obtener_hero();
+        $data['canales']    = $this->Contacto_model->obtener_canales();
+        $data['sucursales'] = $this->Contacto_model->obtener_sucursales();
+
 
         $this->load->view('secciones/header', $data);
         $this->load->view('contacto/contacto', $data);

@@ -7,8 +7,27 @@ class Contacto_model extends CI_Model {
         parent::__construct();
     }
 
-    // Por ahora no se necesita consultar la BD
-    // Aquí se va a agregar métodos en el futuro
-    // Ejemplo: guardar mensajes del formulario en una tabla
+    public function obtener_hero(){
+        return $this->db
+            ->where('estatus', 1)
+            ->order_by('orden', 'ASC')
+            ->get('cat_contacto_hero')
+            ->row();
+    }
 
+    public function obtener_canales(){
+        return $this->db
+            ->where('estatus', 1)
+            ->order_by('orden', 'ASC')
+            ->get('cat_contacto_canales')
+            ->result();
+    }
+
+    public function obtener_sucursales(){
+        return $this->db
+            ->where('estatus', 1)
+            ->order_by('orden', 'ASC')
+            ->get('cat_contacto_sucursales')
+            ->result();
+    }
 }
