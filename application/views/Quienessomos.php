@@ -1,3 +1,6 @@
+<?php 
+defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+
 <style>
 .qs-page {
     font-family: sans-serif;
@@ -411,9 +414,9 @@
             <?php foreach($valores as $v){ ?>
                 <div class="qs-valor-card">
                     <div class="qs-valor-icon">
-                        <?php if(isset($img[$v->nombre])){ ?>
-                            <img src="<?= base_url($img[$v->nombre]->ruta.'/'.$img[$v->nombre]->nombre_archivo); ?>">
-                        <?php } ?>
+                        <svg viewBox="0 0 24 24" style="width:30px;height:30px;stroke:#F28C28;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;">
+                            <?= $v->icono_svg ?? '<circle cx="12" cy="12" r="10"/>' ?>
+                        </svg>
                     </div>
                     <h3><?= $v->nombre ?></h3>
                     <p><?= $v->descripcion ?></p>
