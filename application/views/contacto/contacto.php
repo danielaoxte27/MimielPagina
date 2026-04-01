@@ -1,5 +1,5 @@
 <style>
-/* HERO */
+
 .contacto-hero {
     background: linear-gradient(to bottom, #F4C542, #F28C28);
     text-align: center;
@@ -53,7 +53,6 @@
     margin-bottom: 10px;
 }
 
-/* CONTENIDO PRINCIPAL */
 .contacto-wrapper {
     max-width: 1100px;
     margin: 50px auto;
@@ -159,7 +158,6 @@
     display: none;
 }
 
-/* TARJETAS */
 .contacto-tarjetas {
     width: 320px;
     display: flex;
@@ -263,7 +261,6 @@
     background: #e6b800;
 }
 
-/* MAPA */
 .mapa-section {
     background: #fffbeb;
     padding: 60px 20px;
