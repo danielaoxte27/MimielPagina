@@ -67,7 +67,7 @@
                 <?php if(!empty($tarjetas)): ?>
                     <?php foreach($tarjetas as $item): ?>
                         <div class="producto-item">
-                            <img src="<?= base_url($img[$item->imagen_alt]->ruta.$img[$item->imagen_alt]->nombre_archivo); ?>" class="tag-img">
+                            <img src="<?= base_url($item->ruta . $item->nombre_archivo) ?>" class="tag-img">
                             <h3><?= $item->nombre ?></h3>
                             <p><?= $item->descripcion ?></p>
                             <a href="#" class="btn-producto">Ver productos</a>
