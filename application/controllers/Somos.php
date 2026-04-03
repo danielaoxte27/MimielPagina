@@ -23,6 +23,7 @@ class Somos extends CI_Controller {
 		$data['historia'] = $this->Quienesomos_model->obtener_historia();
 		$data['valores'] = $this->Quienesomos_model->obtener_valores();
 		$data['info'] = $this->Quienesomos_model->obtener_info();
+        $data['omv'] = $this->Quienesomos_model->obtener_omv();
         
 
 		

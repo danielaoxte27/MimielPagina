@@ -9,7 +9,6 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
     color: #1a1a1a;
 }
 
-/* HERO */
 .qs-hero {
     position: relative;
     background: linear-gradient(to bottom, #F4C542, #F28C28);
@@ -67,7 +66,6 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
     line-height: 0;
 }
 
-/* STATS */
 .qs-stats {
     background: white;
     padding: 0 20px 80px;
@@ -94,9 +92,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
     transition: background 0.3s;
 }
 
-.qs-stat:hover {
-    background: #fffbf2;
-}
+.qs-stat:hover { background: #fffbf2; }
 
 .qs-stat-num {
     font-size: 44px;
@@ -113,7 +109,6 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
     letter-spacing: 0.5px;
 }
 
-/* SECCIONES BASE */
 .qs-section {
     max-width: 1100px;
     margin: 0 auto;
@@ -149,7 +144,6 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
     line-height: 1.2;
 }
 
-/* HISTORIA */
 .qs-historia {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -196,11 +190,70 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
     text-justify: inter-word;
 }
 
-.qs-historia-texto p {
-    margin: 0 0 16px;
+.qs-historia-texto p { 
+    margin: 0 0 16px; 
 }
 
-/* VALORES */
+
+.qs-omv-wrap {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 44px;
+}
+
+.qs-omv-card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px 32px;
+    box-shadow: 0 6px 28px rgba(0,0,0,0.06);
+    border: 1px solid #f0ebe0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.qs-omv-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #F4C542, #F28C28);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+}
+
+.qs-omv-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 48px rgba(242,140,40,0.13);
+}
+
+.qs-omv-card:hover::before {
+    transform: scaleX(1);
+}
+
+.qs-omv-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f0ebe0;
+}
+
+.qs-omv-card p {
+    font-size: 13.5px;
+    color: #777;
+    line-height: 1.85;
+    margin: 0;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
 .qs-valores-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -235,8 +288,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
     box-shadow: 0 18px 44px rgba(242,140,40,0.12);
 }
 
-.qs-valor-card:hover::before {
-    transform: scaleX(1);
+.qs-valor-card:hover::before { 
+    transform: scaleX(1); 
 }
 
 .qs-valor-icon {
@@ -248,12 +301,6 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
     align-items: center;
     justify-content: center;
     margin-bottom: 18px;
-}
-
-.qs-valor-icon img {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
 }
 
 .qs-valor-card h3 {
@@ -272,7 +319,6 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
     text-justify: inter-word;
 }
 
-/* POLÍTICA Y FILOSOFÍA */
 .qs-politicas {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -307,8 +353,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
     box-shadow: 0 16px 40px rgba(242,140,40,0.1);
 }
 
-.qs-politica-card:hover::after {
-    transform: scaleX(1);
+.qs-politica-card:hover::after { 
+    transform: scaleX(1); 
 }
 
 .qs-politica-num {
@@ -337,21 +383,66 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
     text-justify: inter-word;
 }
 
-/* RESPONSIVE */
+@media(max-width: 1024px){
+    .qs-historia {
+        gap: 40px;
+    }
+    .qs-valores-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .qs-omv-wrap {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media(max-width: 900px){
     .qs-hero h1 { font-size: 38px; }
-    .qs-historia { grid-template-columns: 1fr; gap: 40px; }
+    .qs-historia {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 40px 0 20px;
+    }
     .qs-historia-img::after { display: none; }
-    .qs-valores-grid { grid-template-columns: 1fr 1fr; }
-    .qs-politicas { grid-template-columns: 1fr; }
+    .qs-historia-img img {
+        min-height: 240px;
+        max-height: 320px;
+    }
     .qs-stats-grid { grid-template-columns: 1fr; }
+    .qs-politicas { grid-template-columns: 1fr; }
+    .qs-title { font-size: 28px; }
 }
 
 @media(max-width: 600px){
+    .qs-hero {
+        padding: 80px 20px 100px;
+    }
     .qs-hero h1 { font-size: 30px; }
-    .qs-valores-grid { grid-template-columns: 1fr; }
-    .qs-title { font-size: 26px; }
-    .qs-politica-card { padding: 28px 22px; }
+    .qs-hero p { font-size: 15px; }
+    .qs-stats {
+        padding: 0 16px 60px;
+    }
+    .qs-stat-num { font-size: 34px; }
+    .qs-section {
+        padding: 0 16px 60px;
+    }
+    .qs-section-alt {
+        padding: 60px 16px;
+    }
+    .qs-title { font-size: 24px; }
+    .qs-valores-grid {
+        grid-template-columns: 1fr;
+    }
+    .qs-omv-wrap {
+        grid-template-columns: 1fr;
+    }
+    .qs-omv-card {
+        padding: 28px 22px;
+    }
+    .qs-politica-card {
+        padding: 28px 22px;
+    }
+    .qs-politica-num { font-size: 40px; }
+    .qs-historia-texto { font-size: 14px; }
 }
 </style>
 
@@ -405,46 +496,64 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
     </div>
 </section>
 
-<!-- VALORES -->
+<!-- OBJETIVO / MISIÓN / VISIÓN -->
 <section class="qs-section-alt">
+    <div class="qs-section-alt-inner">
+        <span class="qs-label">Lo que nos guía</span>
+        <h2 class="qs-title">Objetivo, Misión y Visión</h2>
+        <div class="qs-omv-wrap">
+            <?php if(!empty($omv)) foreach($omv as $item){ ?>
+            <div class="qs-omv-card">
+                <h3><?= $item->nombre ?></h3>
+                <p><?= nl2br($item->descripcion) ?></p>
+            </div>
+            <?php } ?>
+        </div>
+    </div>
+</section>
+
+<!-- VALORES -->
+<section class="qs-section-alt" style="background: white;">
     <div class="qs-section-alt-inner">
         <span class="qs-label">Lo que nos mueve</span>
         <h2 class="qs-title">Nuestros valores</h2>
         <div class="qs-valores-grid">
             <?php foreach($valores as $v){ ?>
-                <div class="qs-valor-card">
-                    <div class="qs-valor-icon">
-                        <svg viewBox="0 0 24 24" style="width:30px;height:30px;stroke:#F28C28;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;">
-                            <?= $v->icono_svg ?? '<circle cx="12" cy="12" r="10"/>' ?>
-                        </svg>
-                    </div>
-                    <h3><?= $v->nombre ?></h3>
-                    <p><?= $v->descripcion ?></p>
+            <div class="qs-valor-card">
+                <div class="qs-valor-icon">
+                    <svg viewBox="0 0 24 24" style="width:30px;height:30px;stroke:#F28C28;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;">
+                        <?= $v->icono_svg ?? '<circle cx="12" cy="12" r="10"/>' ?>
+                    </svg>
                 </div>
+                <h3><?= $v->nombre ?></h3>
+                <p><?= $v->descripcion ?></p>
+            </div>
             <?php } ?>
         </div>
     </div>
 </section>
 
 <!-- POLÍTICA Y FILOSOFÍA -->
-<section class="qs-section" style="padding-top: 80px;">
-    <span class="qs-label">Nuestra esencia</span>
-    <h2 class="qs-title">Política y Filosofía</h2>
-    <div class="qs-politicas">
-        <?php if($politica){ ?>
-        <div class="qs-politica-card">
-            <div class="qs-politica-num">P</div>
-            <h2><?= $politica->nombre ?></h2>
-            <p><?= $politica->descripcion ?></p>
+<section class="qs-section-alt">
+    <div class="qs-section-alt-inner">
+        <span class="qs-label">Nuestra esencia</span>
+        <h2 class="qs-title">Política y Filosofía</h2>
+        <div class="qs-politicas">
+            <?php if($politica){ ?>
+            <div class="qs-politica-card">
+                <div class="qs-politica-num">P</div>
+                <h2><?= $politica->nombre ?></h2>
+                <p><?= $politica->descripcion ?></p>
+            </div>
+            <?php } ?>
+            <?php if($filosofia){ ?>
+            <div class="qs-politica-card">
+                <div class="qs-politica-num">F</div>
+                <h2><?= $filosofia->nombre ?></h2>
+                <p><?= $filosofia->descripcion ?></p>
+            </div>
+            <?php } ?>
         </div>
-        <?php } ?>
-        <?php if($filosofia){ ?>
-        <div class="qs-politica-card">
-            <div class="qs-politica-num">F</div>
-            <h2><?= $filosofia->nombre ?></h2>
-            <p><?= $filosofia->descripcion ?></p>
-        </div>
-        <?php } ?>
     </div>
 </section>
 
