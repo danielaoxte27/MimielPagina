@@ -837,4 +837,9 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 </script>
+<script>
+document.getElementById("menu-toggle").addEventListener("click", function() {
+    document.getElementById("navbar").classList.toggle("active");
+});
+</script>
 </header>
