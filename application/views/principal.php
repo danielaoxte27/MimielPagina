@@ -70,7 +70,7 @@
                             <img src="<?= base_url($item->ruta . $item->nombre_archivo) ?>" class="tag-img">
                             <h3><?= $item->nombre ?></h3>
                             <p><?= $item->descripcion ?></p>
-                            <a href="#" class="btn-producto">Ver productos</a>
+                            <a href="<?= site_url('productos?categoria=' . $item->id) ?>" class="btn-producto"> Ver productos </a>
                         </div>
                     <?php endforeach; ?>
                 <?php endif; ?>
