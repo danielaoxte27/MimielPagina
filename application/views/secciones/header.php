@@ -126,6 +126,7 @@
             font-weight:bold;
             font-size:16px;
             transition:0.3s;
+            height:42px;
         }
  
         .btn-carrito:hover{
@@ -137,14 +138,37 @@
             margin-left:auto;
             align-items:center;
             justify-content:flex-start;
-            gap:15px;
+            gap:10px;
         }
-        .botones-nav a{
+        .botones-nav a:not(.btn-login-icon){
             width:200px;
             justify-content:center;
         }
-        .btn-login{
-            margin-top:0px;
+        .btn-login-icon{
+            display:flex;
+            align-items:center;
+            justify-content:center;
+
+            width:42px !important;
+            height:42px;
+
+            background:#e69d00;
+            color:#fff;
+
+            border-radius:8px;
+            text-decoration:none;
+            transition:0.3s;
+            padding:0;
+        }
+        .btn-login-icon svg{
+            width:20px;
+            height:20px;
+           display:block;
+        }
+        .btn-login-icon:hover{
+            background:#fabc12;
+            border-color:#fabc12;
+            transform:scale(1.05);
         }
         .icono-carrito{
             width:1em;
@@ -651,6 +675,12 @@
         .sucursal:hover span{
             color:#F4C542;
         }
+        .btn-categoria.activo {
+    background: linear-gradient(90deg, #F28C28, #e69d00);
+    color: white;
+    border: 2px solid #F28C28;
+    box-shadow: 0 0 0 3px rgba(242,140,40,0.2);
+}
  
         @media(max-width:992px){
             .footer-container{
@@ -758,9 +788,10 @@
         <?php if(!empty($secciones)): ?>
             <?php foreach($secciones as $seccion): ?>
                 <?php /* <a href="<?= $seccion->href ?>" class="nav-link "> */ ?>
-                <a href="<?= site_url($seccion->href) ?>" class="nav-link ">
-                    <?= $seccion->nombre_seccion ?>
-                </a>
+                <a href="<?= site_url($seccion->href) ?>" 
+                class="nav-link <?= uri_string() == $seccion->href ? 'activo' : '' ?>">
+                <?= $seccion->nombre_seccion ?>
+            </a>
             <?php endforeach; ?>
         <?php endif; ?>
  
@@ -773,27 +804,37 @@
                     <path d="M1 1h4l2.6 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.5L23 6H6"></path>
                 </svg>
             </a>
- 
-            <a href="<?= site_url('Welcome/login') ?>" class="btn-carrito btn-login">
-                Iniciar sesión
-                <svg class="icono-carrito" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+
+            <a href="<?= site_url('Welcome/login') ?>" class="btn-login-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                     <circle cx="12" cy="7" r="4"></circle>
                 </svg>
-            </a>
+            </a>   
         </div>
     </nav>
-    <script src="<?= base_url('assets/js/accesibilidad.js'); ?>"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const navLinks = document.querySelectorAll('.nav-link');
- 
-            navLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                     navLinks.forEach(l => l.classList.remove('activo'));
-                     this.classList.add('activo');
-                });
-            });
+    
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const botones = document.querySelectorAll('.btn-categoria');
+
+    // Recuperar el botón activo guardado
+    const activoGuardado = localStorage.getItem('categoriaActiva');
+
+    if (activoGuardado) {
+        botones.forEach(btn => {
+            if (btn.href === activoGuardado) {
+                btn.classList.add('activo');
+            }
         });
+    }
+
+    //  Guardar cuando hagan click
+    botones.forEach(btn => {
+        btn.addEventListener('click', function() {
+            localStorage.setItem('categoriaActiva', this.href);
+        });
+    });
+});
 </script>
 </header>
