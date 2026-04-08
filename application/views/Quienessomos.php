@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 .qs-hero {
     position: relative;
     background: linear-gradient(to bottom, #F4C542, #F28C28);
-    padding: 120px 20px 140px;
+    padding: 64px 20px 64px;
     text-align: center;
     overflow: hidden;
 }
@@ -243,6 +243,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
     margin: 0;
     padding-bottom: 12px;
     border-bottom: 1px solid #f0ebe0;
+
 }
 
 .qs-omv-card p {
@@ -453,11 +454,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
     <div class="qs-hero-badge">Miel Artesanal 100% Natural</div>
     <h1>Quiénes somos</h1>
     <p>Más de una generación cultivando el amor por la miel pura, natural y sostenible.</p>
-    <div class="qs-hero-wave">
-        <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-            <path d="M0,40 C360,80 1080,0 1440,40 L1440,60 L0,60 Z" fill="#fafaf8"/>
-        </svg>
-    </div>
+
 </section>
 
 <!-- STATS -->
