@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css'); ?>">
  
     <title>PAGINA MIMIEL</title>
  
@@ -716,12 +715,17 @@
                 }
             .btn-perfil:hover{
                 background:#d9731f;
-           
-        }
+           }
 }
+        @media (max-width:1224px){
+            #navbar .botones-nav{
+            display:none !important;
+            }
+        }
     </style>
  
     <link rel="stylesheet" href="<?= base_url('assets/css/accesibilidad.css'); ?>">
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css'); ?>">
 </head>
  
 <body>
@@ -813,33 +817,9 @@
             </a>   
         </div>
     </nav>
-    
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    const botones = document.querySelectorAll('.btn-categoria');
 
-    // Recuperar el botón activo guardado
-    const activoGuardado = localStorage.getItem('categoriaActiva');
 
-    if (activoGuardado) {
-        botones.forEach(btn => {
-            if (btn.href === activoGuardado) {
-                btn.classList.add('activo');
-            }
-        });
-    }
+<script src="<?= base_url('assets/js/accesibilidad.js'); ?>"></script>
+<script src="<?= base_url('assets/js/navbar.js'); ?>"></script>
 
-    //  Guardar cuando hagan click
-    botones.forEach(btn => {
-        btn.addEventListener('click', function() {
-            localStorage.setItem('categoriaActiva', this.href);
-        });
-    });
-});
-</script>
-<script>
-document.getElementById("menu-toggle").addEventListener("click", function() {
-    document.getElementById("navbar").classList.toggle("active");
-});
-</script>
 </header>

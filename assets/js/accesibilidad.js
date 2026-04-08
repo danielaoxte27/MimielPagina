@@ -1,5 +1,5 @@
 
-const btn = document.getElementById("btn-accesibilidad");
+/*const btn = document.getElementById("btn-accesibilidad");
 const panel = document.getElementById("panel-accesibilidad");
 
 btn.addEventListener("click", () => {
@@ -40,7 +40,7 @@ function resetAccesibilidad() {
     }   
 });*/
 /*actualización de navbar*/
-document.addEventListener("DOMContentLoaded", function() {
+/*document.addEventListener("DOMContentLoaded", function() {
     const navLinks = document.querySelectorAll('#navbar .nav-link');
     function resaltarEnlace(hash) {
         navLinks.forEach(link => {
@@ -72,4 +72,31 @@ document.addEventListener("DOMContentLoaded", function() {
             navbar.classList.remove("active");
         });
     });
-});
+});*/
+
+// Accesibilidad
+const btn = document.getElementById("btn-accesibilidad");
+const panel = document.getElementById("panel-accesibilidad");
+
+if (btn && panel) {
+    btn.addEventListener("click", () => {
+        panel.classList.toggle("active");
+    });
+}
+
+function aumentarTexto() {
+    document.body.style.fontSize = "18px";
+}
+
+function toggleContraste() {
+    document.body.classList.toggle("alto-contraste");
+}
+
+function toggleAnimaciones() {
+    document.body.classList.toggle("sin-animaciones");
+}
+
+function resetAccesibilidad() {
+    document.body.removeAttribute("style");
+    document.body.classList.remove("alto-contraste", "sin-animaciones");
+}

@@ -102,6 +102,13 @@ section{
     #navbar .btn-carrito{
         display:none;
     }
-    
+
+    #navbar .btn-login-icon{
+        display:none;
+    }
+
+    #navbar .botones-nav{
+        display:none;
+    }   
     
 }
