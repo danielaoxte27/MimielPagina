@@ -791,12 +791,11 @@
     <nav id="navbar">
         <?php if(!empty($secciones)): ?>
             <?php foreach($secciones as $seccion): ?>
-                <?php /* <a href="<?= $seccion->href ?>" class="nav-link "> */ ?>
-                <a href="<?= site_url($seccion->href) ?>" 
-                class="nav-link <?= uri_string() == $seccion->href ? 'activo' : '' ?>">
-                <?= $seccion->nombre_seccion ?>
-            </a>
-            <?php endforeach; ?>
+    <a href="<?= site_url($seccion->href) ?>" 
+       class="nav-link <?= strtok(current_url(), '?') == site_url($seccion->href) ? 'activo' : '' ?>">
+        <?= $seccion->nombre_seccion ?>
+    </a>
+<?php endforeach; ?>
         <?php endif; ?>
  
         <div class="botones-nav">

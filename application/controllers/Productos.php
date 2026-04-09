@@ -12,13 +12,13 @@ class Productos extends CI_Controller {
     public function index()
 	{
         // CAPTURAR FILTROS 
-        $categoria = $this->input->get('categoria');
+        $categoria = (int)$this->input->get('categoria'); // ya queda 0 si viene null
         $busqueda  = $this->input->get('buscar');
 
-        //  inico el de productos del header
+/*         //  inico el de productos del header
         if(!$categoria){
             $categoria = 0;
-        }
+        } */
 
         
         $data["img"] = $this->cargar_imagenes();

@@ -38,21 +38,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // Categoría activa
-    const botones = document.querySelectorAll('.btn-categoria');
-    const activoGuardado = localStorage.getItem('categoriaActiva');
-    if (activoGuardado) {
-        botones.forEach(btn => {
-            if (btn.href === activoGuardado) {
-                btn.classList.add('activo');
-            }
-        });
-    }
-    botones.forEach(btn => {
-        btn.addEventListener('click', function() {
-            localStorage.setItem('categoriaActiva', this.href);
-        });
-    });
+
 
     // Cerrar navbar al hacer click en link
     const navLinks = document.querySelectorAll('#navbar .nav-link');

@@ -358,15 +358,17 @@
     <div class="productos-container">
 
         <div class="categorias-nav">
-            <a href="<?= site_url('productos') ?>"
-               class="btn-categoria <?= $categoria_actual == 0 ? 'activo' : '' ?>">TODOS</a>
-
-            <?php foreach($categorias as $c): ?>
+         <!--   TODOS  -->
+            <a href="<?= site_url('productos?categoria=0') ?>"
+            class="btn-categoria <?= (int)$categoria_actual === 0 ? 'activo' : '' ?>">TODOS</a>
+            
+            <!--  Categorías  -->
+              <?php foreach($categorias as $c): ?>
                 <a href="<?= site_url('productos?categoria='.$c->id) ?>"
-                   class="btn-categoria <?= $categoria_actual == $c->id ? 'activo' : '' ?>">
-                   <?= $c->nombre ?>
-                </a>
-            <?php endforeach; ?>
+                class="btn-categoria <?= (int)$categoria_actual === (int)$c->id ? 'activo' : '' ?>">
+                <?= $c->nombre ?>
+              </a>
+              <?php endforeach; ?> 
         </div>
 
         <span class="prod-label">Explora nuestra colección</span>
