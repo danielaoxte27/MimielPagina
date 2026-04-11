@@ -7,7 +7,6 @@
     color: #1a1a1a;
 }
 
-
 .productos-hero {
     background: linear-gradient(to bottom, #F4C542, #F28C28);
     color: #fff;
