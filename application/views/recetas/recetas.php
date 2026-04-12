@@ -255,6 +255,33 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
     display: block;
     margin: 0 auto 16px;
 }
+
+/*Buscador*/
+.hero-search {
+    display: inline-flex;
+    align-items: center;
+    background: white;
+    border-radius: 50px;
+    padding: 6px 8px 6px 22px;
+    gap: 10px;
+    width: 100%;
+    max-width: 480px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+}
+
+.hero-search svg { flex-shrink: 0; opacity: 0.4; }
+
+.hero-search input {
+    border: none;
+    outline: none;
+    font-size: 15px;
+    font-family: sans-serif;
+    background: transparent;
+    color: #333;
+    width: 100%;
+}
+
+.hero-search input::placeholder { color: #aaa; }
 </style>
 
 <!-- HERO -->
@@ -268,7 +295,15 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             </svg>
         </div>
         <h1>Recetas</h1>
-        <p>Artículos sobre miel y apicultura</p>
+        <p>Deliciosas recetas hechas con miel de abeja</p>
+
+
+         <div class="hero-search">
+          
+            <input type="text" id="buscarInput"
+                   placeholder="Buscar receta..."
+                   value="<?= isset($busqueda) ? $busqueda : '' ?>">
+        </div>
     </div>
     
 </section>
@@ -295,7 +330,7 @@ if(!empty($articulos)): ?>
     <!-- IMAGEN o PLACEHOLDER -->
     <?php if(!empty($art->imagen_ruta)): ?>
         <img src="<?= base_url($art->imagen_ruta . $art->imagen_nombre) ?>"
-             alt="<?= htmlspecialchars($art->imagen_alt ?? $art->nombre) ?>"
+             alt="<?= htmlspecialchars($art->imagen_alt ?? $art->titulo) ?>"
              class="recetas-card-img">
     <?php else: ?>
         <div class="recetas-card-placeholder <?= $color ?>"></div>
@@ -322,8 +357,8 @@ if(!empty($articulos)): ?>
         </p>
 
         <div class="recetas-card-footer">
-            <a href="<?= site_url('blog/detalle/'.$art->id) ?>" class="btn-leer-mas">
-                Leer más
+            <a href="<?= site_url('recetas/recetasdetalle/'.$art->id) ?>" class="btn-leer-mas">
+                Más información
                 <svg viewBox="0 0 24 24">
                     <line x1="5" y1="12" x2="19" y2="12"/>
                     <polyline points="12 5 19 12 12 19"/>
@@ -337,7 +372,7 @@ if(!empty($articulos)): ?>
 <?php endforeach; ?>
 </div>
 
-<!--<?php else: ?>
+<?php else: ?>
 <div class="blog-empty">
     <svg viewBox="0 0 24 24">
         <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
@@ -345,6 +380,6 @@ if(!empty($articulos)): ?>
     </svg>
     <p>No hay artículos publicados por el momento.</p>
 </div>
-<?php endif; ?>-->
+<?php endif; ?>
 
 </section>
