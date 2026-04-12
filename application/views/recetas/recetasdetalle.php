@@ -217,10 +217,10 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <?php $fecha = !empty($articulo->registro) ? date('d M Y', strtotime($articulo->registro)) : ''; ?>
 
 <!-- HERO -->
-<section class="recetas-detalle-hero">
-    <div class="recetas-detalle-hero-inner">
+<section class="recetasdetalle-hero">
+    <div class="recetasdetalle-hero-inner">
 
-        <p class="recetas-detalle-breadcrumb">
+        <p class="recetasdetalle-breadcrumb">
             <a href="<?= site_url('recetas') ?>">Recetas</a>
             <span>›</span>
             <?= htmlspecialchars(mb_substr($articulo->nombre ?? '', 0, 55)) ?><?= mb_strlen($articulo->nombre ?? '') > 55 ? '...' : '' ?>
@@ -229,7 +229,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
         <h1><?= htmlspecialchars($articulo->nombre ?? 'Sin título') ?></h1>
 
         <?php if($fecha): ?>
-        <div class="recetas-detalle-meta">
+        <div class="recetasdetalle-meta">
             <svg viewBox="0 0 24 24">
                 <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
                 <line x1="16" y1="2" x2="16" y2="6"/>
@@ -244,15 +244,15 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 </section>
 
 <!-- CONTENIDO -->
-<div class="recetas-detalle-wrapper">
+<div class="recetasdetalle-wrapper">
 
     <!-- imagen destacada -->
-    <div class="recetas-detalle-imagen-wrap">
+    <div class="recetasdetalle-imagen-wrap">
         <?php if(!empty($articulo->imagen_ruta)): ?>
             <img src="<?= base_url($articulo->imagen_ruta . $articulo->imagen_nombre) ?>"
                  alt="<?= htmlspecialchars($articulo->imagen_alt ?? $articulo->nombre) ?>">
         <?php else: ?>
-            <div class="recetas-detalle-placeholder">
+            <div class="recetasdetalle-placeholder">
                 <svg viewBox="0 0 24 24">
                     <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
                     <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
@@ -262,14 +262,23 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
     </div>
 
     <!-- descripción / resumen -->
-    <p class="recetas-detalle-resumen">
+    <p class="recetasdetalle-resumen">
         <?= htmlspecialchars($articulo->descripcion ?? '') ?>
     </p>
 
-    <hr class="recetas-detalle-divider">
+    <hr class="recetasdetalle-divider">
 
-    <!-- texto completo -->
-    <div class="recetas-detalle-content">
+    <!--INGREDIENTES-->
+    <div class ="recetasdetalle-content">
+        <?php if (!empty($articulo->ingredientes)):?>
+            <?= $articulo->ingredientes ?>
+        <?php else: ?>
+            <p>Contenido no disponible.</p>
+        <?php endif; ?>
+    </div>
+
+    <!-- RECETA -->
+    <div class="recetasdetalle-content">
         <?php if(!empty($articulo->receta)): ?>
             <?= $articulo->receta ?>
         <?php elseif(!empty($articulo->mas_informacion)): ?>
@@ -279,7 +288,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
         <?php endif; ?>
     </div>
 
-    <hr class="receta-detalle-divider">
+    <hr class="recetasdetalle-divider">
 
     <!-- volver -->
     <a href="<?= site_url('recetas') ?>" class="btn-volver">
