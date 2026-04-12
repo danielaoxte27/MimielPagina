@@ -40,12 +40,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 14px;
+    margin-bottom: 0px;
 }
 
 .recetas-hero-icon svg {
-    width: 54px;
-    height: 54px;
+    width: 65px;
+    height: 65px;
     stroke: #fff;
     fill: none;
     stroke-width: 2.2;
@@ -267,6 +267,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
     width: 100%;
     max-width: 480px;
     box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+    margin-top: 20px;
 }
 
 .hero-search svg { flex-shrink: 0; opacity: 0.4; }
@@ -280,8 +281,42 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
     color: #333;
     width: 100%;
 }
-
 .hero-search input::placeholder { color: #aaa; }
+/*Botón agregar receta*/
+.btn-agregar {
+    padding: 9px 22px;
+    border-radius: 50px;
+    border: 2px solid #F28C28;
+    color: #F28C28;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    font-family: sans-serif;
+    letter-spacing: 0.5px;
+    transition: 0.25s;
+    background: transparent;
+    cursor: pointer;
+}
+.btn-agregar:hover { 
+    background: #fff3e0; transform: translateY(-2px); 
+}
+.contenedor-agregar {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* centra TODO */
+    margin: 30px 0;
+}
+
+.receta-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #F28C28;
+    margin-bottom: 15px;
+    align-items: center;
+}
 </style>
 
 <!-- HERO -->
@@ -289,10 +324,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
     <div class="recetas-hero-inner">
         <div class="recetas-hero-icon">
             <!-- libro abierto -->
-            <svg viewBox="0 0 24 24">
-                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
-            </svg>
+            <svg fill="#000000" width="800px" height="800px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1"><path d="M26.01,15.24H6c-.41,0-.75,.34-.75,.75,0,4.24,2.47,7.91,6.05,9.66v2.35c0,.41,.34,.75,.75,.75h7.92c.41,0,.75-.34,.75-.75v-2.35c3.57-1.75,6.04-5.41,6.04-9.65,0-.41-.34-.75-.75-.75Zm-6.79,12.01h-6.42v-.99c1.01,.32,2.09,.49,3.21,.49s2.2-.17,3.22-.49v.99Zm-3.22-2c-4.13,0-7.63-2.72-8.82-6.47h14.69c.41,0,.75-.34,.75-.75s-.34-.75-.75-.75H6.85c-.03-.18-.05-.36-.07-.54H25.23c-.38,4.75-4.37,8.51-9.23,8.51Z"stroke-width="1"/><path d="M25.55,5.23H14.99v-.13c0-1.02-.83-1.85-1.85-1.85-.41,0-.79,.14-1.1,.37-.31-.23-.69-.37-1.1-.37s-.79,.14-1.1,.37c-.31-.23-.69-.37-1.1-.37s-.79,.14-1.1,.37c-.31-.23-.69-.37-1.1-.37-1.02,0-1.85,.83-1.85,1.85v3.86c0,1.02,.83,1.85,1.85,1.85,.41,0,.79-.14,1.1-.37,.31,.23,.69,.37,1.1,.37s.79-.14,1.1-.37c.31,.23,.69,.37,1.1,.37s.79-.14,1.1-.37c.31,.23,.69,.37,1.1,.37,1.02,0,1.85-.83,1.85-1.85v-.2h10.57c.97,0,1.77-.79,1.77-1.77s-.79-1.77-1.77-1.77ZM6.53,9.32c-.19,0-.35-.16-.35-.35v-3.86c0-.19,.16-.35,.35-.35s.35,.16,.35,.35v3.86c0,.19-.16,.35-.35,.35Zm2.2,0c-.19,0-.35-.16-.35-.35v-3.86c0-.19,.16-.35,.35-.35s.35,.16,.35,.35v3.86c0,.19-.16,.35-.35,.35Zm2.2,0c-.19,0-.35-.16-.35-.35v-3.86c0-.19,.16-.35,.35-.35s.35,.16,.35,.35v3.86c0,.19-.16,.35-.35,.35Zm2.55-.35c0,.19-.16,.35-.35,.35s-.35-.16-.35-.35v-3.86c0-.19,.16-.35,.35-.35s.35,.16,.35,.35v3.86Zm12.07-1.7H14.99v-.53h10.57c.15,0,.27,.12,.27,.27s-.12,.27-.27,.27Z"stroke-width="1"/></svg>
         </div>
         <h1>Recetas</h1>
         <p>Deliciosas recetas hechas con miel de abeja</p>
@@ -307,6 +339,14 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
     </div>
     
 </section>
+<!-- Agregar receta -->
+
+ <div class="contenedor-agregar">
+     <span class="receta-label">Comparte tus recetas con nosotros</span>
+    <a href="<?= site_url('recetas') ?>" class="btn-agregar">
+        Agregar receta
+    </a>
+ </div>
 <!-- LISTADO -->
 <section class="recetas-section">
 
@@ -381,5 +421,7 @@ if(!empty($articulos)): ?>
     <p>No hay artículos publicados por el momento.</p>
 </div>
 <?php endif; ?>
+
+
 
 </section>

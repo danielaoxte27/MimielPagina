@@ -20,7 +20,8 @@ class Recetas extends CI_Controller {
         $this->load->view('secciones/header', $data);
         $this->load->view('recetas/recetas', $data);
         $this->load->view('secciones/footer', $data);
-    }
+     }
+     
 
     public function recetasdetalle($id = null){
         if(!$id || !is_numeric($id)){
