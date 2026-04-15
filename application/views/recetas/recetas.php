@@ -343,7 +343,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
  <div class="contenedor-agregar">
      <span class="receta-label">Comparte tus recetas con nosotros</span>
-    <a href="<?= site_url('recetas') ?>" class="btn-agregar">
+    <a href="<?= site_url('recetas/recetasformulario') ?>" class="btn-agregar">
         Agregar receta
     </a>
  </div>
@@ -413,7 +413,7 @@ if(!empty($articulos)): ?>
 </div>
 
 <?php else: ?>
-<div class="blog-empty">
+<div class="recetas-empty">
     <svg viewBox="0 0 24 24">
         <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
         <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
