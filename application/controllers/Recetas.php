@@ -57,6 +57,24 @@ class Recetas extends CI_Controller {
         return $img;
     }
 
+    Public function recetasformulario(){
+
+    $data = [
+        'img'        => $this->cargar_imagenes(),
+        'secciones'  => $this->cargar_secciones(),
+        'footer'     => $this->cargar_footer(),
+
+        'hero' => (object)[
+            'titulo' => 'Comparte tu receta con nosotros',
+            'subtitulo' => 'Envíanos tu receta favorita'
+        ],
+    ];
+
+    $this->load->view('secciones/header', $data);
+    $this->load->view('recetas/recetasformulario', $data);
+    $this->load->view('secciones/footer', $data);
+    }
+
     private function cargar_secciones(){
         $secciones = $this->Pagina_model->consultar_secciones_activas();
         return $secciones ? $secciones : [];
