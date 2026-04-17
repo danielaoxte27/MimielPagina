@@ -65,7 +65,7 @@ class Recetas extends CI_Controller {
         'footer'     => $this->cargar_footer(),
 
         'hero' => (object)[
-            'titulo' => 'Comparte tu receta',
+            'titulo' => 'Comparte tu receta con nosotros',
             'subtitulo' => 'Envíanos tu receta favorita'
         ],
     ];
