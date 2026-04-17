@@ -25,7 +25,7 @@ class Productos extends CI_Controller {
         $data["secciones"] = $this->cargar_secciones();
         $data["footer"] = $this->cargar_footer();
 
-        //  CATEGORÍAS (para el select)
+        //  CATEGORÍAS 
         $data["categorias"] = $this->Producto_model->obtener_categorias();
 
         //  PRODUCTOS 
