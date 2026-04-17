@@ -20,7 +20,8 @@ class Recetas extends CI_Controller {
         $this->load->view('secciones/header', $data);
         $this->load->view('recetas/recetas', $data);
         $this->load->view('secciones/footer', $data);
-    }
+     }
+     
 
     public function recetasdetalle($id = null){
         if(!$id || !is_numeric($id)){
@@ -54,6 +55,24 @@ class Recetas extends CI_Controller {
             }
         }
         return $img;
+    }
+
+    Public function recetasformulario(){
+
+    $data = [
+        'img'        => $this->cargar_imagenes(),
+        'secciones'  => $this->cargar_secciones(),
+        'footer'     => $this->cargar_footer(),
+
+        'hero' => (object)[
+            'titulo' => 'Comparte tu receta con nosotros',
+            'subtitulo' => 'Envíanos tu receta favorita'
+        ],
+    ];
+
+    $this->load->view('secciones/header', $data);
+    $this->load->view('recetas/recetasformulario', $data);
+    $this->load->view('secciones/footer', $data);
     }
 
     private function cargar_secciones(){
