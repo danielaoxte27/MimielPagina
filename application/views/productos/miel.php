@@ -192,7 +192,7 @@
     width: 100%;
     height: 280px;
     overflow: hidden;
-    background: linear-gradient(180deg, #ffffff 0%, #fffbf2 100%);
+    background: linear-gradient(180deg, #ffffff 0%, #ffffff 100%);
     display: flex;
     align-items: center;
     justify-content: center;
