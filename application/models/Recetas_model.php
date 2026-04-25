@@ -6,7 +6,7 @@ class Recetas_model extends CI_Model {
     public function __construct(){
         parent::__construct();
     }
-    public function obtener_recetas(){
+    public function obtener_recetas($busqueda = null){
 
         $this->db->select('r.*, i.ruta AS imagen_ruta, i.nombre_archivo AS imagen_nombre, i.alt AS imagen_alt');
         $this->db->from('cat_recetas r');
@@ -14,9 +14,17 @@ class Recetas_model extends CI_Model {
         $this->db->where('r.status', 1);
         $this->db->order_by('r.registro', 'DESC');
 
-        $query = $this->db->get();
+        if($busqueda){
+        $this->db->group_start();
+        $this->db->like('r.nombre', $busqueda);
+        $this->db->or_like('r.descripcion', $busqueda);
+        $this->db->group_end();
+    }
 
-        return $query->num_rows() > 0 ? $query->result() : [];
+    $query = $this->db->get();
+
+    return $query->num_rows() > 0 ? $query->result() : [];
+        
     }
 
     public function obtener_recetas_por_id($id){
@@ -31,4 +39,5 @@ class Recetas_model extends CI_Model {
 
         return $query->num_rows() > 0 ? $query->row() : false;
     }
+    
 }

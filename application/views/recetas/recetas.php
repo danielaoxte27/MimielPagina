@@ -425,3 +425,25 @@ if(!empty($articulos)): ?>
 
 
 </section>
+<script>
+(function(){
+    var input = document.getElementById('buscarInput');
+    if(!input) return;
+
+    var timeout = null;
+
+    input.addEventListener('input', function(){
+        clearTimeout(timeout);
+
+        timeout = setTimeout(function(){
+            var q = input.value.trim();
+
+            if(q !== ''){
+                window.location.href = "<?= site_url('recetas?buscar=') ?>" + encodeURIComponent(q);
+            }else{
+                window.location.href = "<?= site_url('recetas') ?>";
+            }
+        }, 600); 
+    });
+})();
+</script>

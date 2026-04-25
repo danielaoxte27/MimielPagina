@@ -10,11 +10,14 @@ class Recetas extends CI_Controller {
     }
 
      public function index(){
+        $busqueda = $this->input->get('buscar');
+        
+
         $data = [
             'img'       => $this->cargar_imagenes(),
             'secciones' => $this->cargar_secciones(),
             'footer'    => $this->cargar_footer(),
-            'articulos' => $this->Recetas_model->obtener_recetas()
+            'articulos' => $this->Recetas_model->obtener_recetas($busqueda),'busqueda'  => $busqueda 
         ];
 
         $this->load->view('secciones/header', $data);
