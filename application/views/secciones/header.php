@@ -820,5 +820,5 @@
 
 <script src="<?= base_url('assets/js/accesibilidad.js'); ?>"></script>
 <script src="<?= base_url('assets/js/navbar.js'); ?>"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </header>
