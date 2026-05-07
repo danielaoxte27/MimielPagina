@@ -1,19 +1,19 @@
 <style>
-
 .productos {
     font-family: sans-serif;
     background: #fafaf8;
     padding: 0 0 80px;
     color: #1a1a1a;
+    padding-top: 0px;
 }
 
 .productos-hero {
     background: linear-gradient(to bottom, #F4C542, #F28C28);
     color: #fff;
     text-align: center;
-    padding: 64px 20px 52px;
+    padding: 64px 20px 80px;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .productos-hero::before {
@@ -25,6 +25,7 @@
     opacity: 0.13;
     pointer-events: none;
 }
+
 .productos-hero::after {
     content: '';
     position: absolute;
@@ -66,16 +67,36 @@
     font-weight: 300;
 }
 
+/* --- BLOQUE DEL BUSCADOR (Efecto Recetas) --- */
+.search-sticky-wrapper {
+    position: sticky;
+    top: 90px; 
+    z-index: 1000;
+    width: 100%;
+    padding: 8px 0 14px 0; 
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    display: flex;
+    justify-content: center;
+    margin-top: -65px; 
+}
+
+.is-scrolled {
+    background-color: #F4C542; 
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    margin-top: 0; 
+    width: 100%; 
+}
+
 .hero-search {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     background: white;
     border-radius: 50px;
-    padding: 6px 8px 6px 22px;
-    gap: 10px;
-    width: 100%;
-    max-width: 480px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+    padding: 10px 22px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    border: 1px solid #eee;
 }
 
 .hero-search svg { flex-shrink: 0; opacity: 0.4; }
@@ -91,11 +112,13 @@
 }
 
 .hero-search input::placeholder { color: #aaa; }
+/* ------------------------------------------- */
 
 .productos-container {
     max-width: 1500px;
     margin: auto;
     padding: 0 24px;
+    margin-top: 40px;
 }
 
 .categorias-nav {
@@ -103,7 +126,7 @@
     justify-content: center;
     gap: 10px;
     flex-wrap: wrap;
-    margin: 36px 0 28px;
+    margin: 60px 0 28px;
 }
 
 .btn-categoria {
@@ -145,13 +168,11 @@
     margin-bottom: 20px;
 }
 
-
 .productos-bloques {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 }
-
 
 .producto-item {
     background: white;
@@ -163,7 +184,6 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    /* sin min-width — se estiran al 100% de su columna */
     width: 100%;
 }
 
@@ -211,7 +231,6 @@
     transform: scale(1.1);
 }
 
-
 .categoria-label {
     position: absolute;
     top: 14px;
@@ -227,7 +246,6 @@
     z-index: 2;
     box-shadow: 0 2px 10px rgba(242,140,40,0.4);
 }
-
 
 .producto-contenido {
     padding: 18px 20px 22px;
@@ -281,12 +299,11 @@
 .precio span {
     font-size: 13px;
     font-weight: 500;
-    color: #ccc;
+    color: #F28C28;
     vertical-align: top;
     margin-top: 3px;
     display: inline-block;
 }
-
 
 .btn-carrito-producto {
     padding: 10px 20px;
@@ -319,7 +336,6 @@
     font-size: 15px;
 }
 
-
 @media (max-width: 1200px) {
     .productos-bloques { grid-template-columns: repeat(3, 1fr); }
 }
@@ -333,72 +349,64 @@
     .prod-footer { flex-direction: column; align-items: stretch; }
     .btn-carrito-producto { text-align: center; }
 }
-
 </style>
 
-
 <div class="productos">
-
     <div class="productos-hero">
-        <div class="productos-hero-badge">Apícola Natural &bull; Hecho en México</div>
+        <div class="productos-hero-badge">Apícola Natural • Hecho en México</div>
         <h2>Nuestros Productos</h2>
         <p>Miel natural, cosmética y productos apícolas de alta calidad</p>
+    </div>
 
+    <div id="search-wrapper" class="search-sticky-wrapper">
         <div class="hero-search">
-          
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2" style="margin-right: 10px;">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
             <input type="text" id="buscarInput"
                    placeholder="Buscar producto..."
-                   value="<?= isset($busqueda) ? $busqueda : '' ?>">
+                   value="<?php echo isset($busqueda) ? $busqueda : ''; ?>">
         </div>
-
-        
     </div>
 
     <div class="productos-container">
-
         <div class="categorias-nav">
-         <!--   TODOS  -->
-            <a href="<?= site_url('productos?categoria=0') ?>"
-            class="btn-categoria <?= (int)$categoria_actual === 0 ? 'activo' : '' ?>">TODOS</a>
+            <a href="<?php echo site_url('productos?categoria=0'); ?>"
+            class="btn-categoria <?php echo  0 ? 'activo' : ''; ?>">TODOS</a>
             
-            <!--  Categorías  -->
-              <?php foreach($categorias as $c): ?>
-                <a href="<?= site_url('productos?categoria='.$c->id) ?>"
-                class="btn-categoria <?= (int)$categoria_actual === (int)$c->id ? 'activo' : '' ?>">
-                <?= $c->nombre ?>
-              </a>
-              <?php endforeach; ?> 
+            <?php if(!empty($categorias)): ?>
+                <?php foreach($categorias as $c): ?>
+                    <a href="<?php echo site_url('productos?categoria='.$c->id); ?>"
+                    class="btn-categoria <?php echo (int)$c->id ? 'activo' : ''; ?>">
+                    <?php echo $c->nombre; ?>
+                    </a>
+                <?php endforeach; ?> 
+            <?php endif; ?>
         </div>
 
         <span class="prod-label">Explora nuestra colección</span>
         <p class="prod-count" id="prod-count">
-            <?= count($productos) ?> producto<?= count($productos) != 1 ? 's' : '' ?> disponibles
+            <?php echo  1 ? 's' : ''; ?> disponibles
         </p>
 
         <div class="productos-bloques" id="productosGrid">
-
             <?php if(!empty($productos)): ?>
                 <?php foreach ($productos as $p): ?>
-
-                    <div class="producto-item"
-                         data-nombre="<?= strtolower(htmlspecialchars($p->nombre)) ?>"
-                         data-desc="<?= strtolower(htmlspecialchars($p->descripcion)) ?>"
-                         data-cat="<?= strtolower(htmlspecialchars($p->categoria_nombre)) ?>">
-
-                        <div class="categoria-label"><?= $p->categoria_nombre ?></div>
-
+                    <div class="producto-item">
+                        <div class="categoria-label"><?php echo $p->categoria_nombre; ?></div>
                         <div class="tag-img-wrap">
-                            <img src="<?= base_url($p->imagen_ruta . $p->imagen_nombre) ?>"
-                                 class="tag-img" alt="<?= $p->nombre ?>">
+                            <img src="<?php echo base_url($p->imagen_ruta . $p->imagen_nombre); ?>"
+                                 class="tag-img" alt="<?php echo $p->nombre; ?>">
                         </div>
 
                         <div class="producto-contenido">
-                            <h3><?= $p->nombre ?></h3>
-                            <p class="prod-desc"><?= $p->descripcion ?></p>
+                            <h3><?php echo $p->nombre; ?></h3>
+                            <p class="prod-desc"><?php echo $p->descripcion; ?></p>
                             <div class="prod-divider"></div>
                             <div class="prod-footer">
                                 <div class="precio">
-                                    <span>$</span><?= number_format($p->precio, 2) ?>
+                                    <span>$</span><?php echo number_format($p->precio, 2); ?>
                                 </div>
                                 <button class="btn-carrito-producto"
                                     onclick="
@@ -411,36 +419,39 @@
                                 </button>
                             </div>
                         </div>
-
                     </div>
-
                 <?php endforeach; ?>
             <?php else: ?>
                 <p class="no-productos">No hay productos disponibles</p>
             <?php endif; ?>
-
         </div>
     </div>
 </div>
 
-
 <script>
 (function(){
     var input = document.getElementById('buscarInput');
+    var wrapper = document.getElementById('search-wrapper');
     if(!input) return;
 
-    var timeout = null;
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 120) {
+            wrapper.classList.add('is-scrolled');
+        } else {
+            wrapper.classList.remove('is-scrolled');
+        }
+    });
 
+    var timeout = null;
     input.addEventListener('input', function(){
         clearTimeout(timeout);
-
         timeout = setTimeout(function(){
             var q = input.value.trim();
-
+            var baseUrl = "<?php echo site_url('productos'); ?>";
             if(q !== ''){
-                window.location.href = "<?= site_url('productos?buscar=') ?>" + encodeURIComponent(q);
+                window.location.href = baseUrl + "?buscar=" + encodeURIComponent(q);
             }else{
-                window.location.href = "<?= site_url('productos') ?>";
+                window.location.href = baseUrl;
             }
         }, 600); 
     });
