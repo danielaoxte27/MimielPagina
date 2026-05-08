@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
  
-    <title>PAGINA MIMIEL</title>
+    <title>Mimiel</title>
+    <link rel="icon" type="image/png" href="<?= base_url('assets/imagenes/logo-pestana.png?v=1'); ?>">
  
     <style>
         *{
@@ -31,6 +33,7 @@
             position:sticky;
             top:0;
             z-index:1000;
+            background: white;
         }
  
         header a:hover{
@@ -208,10 +211,11 @@
         }
  
         .mision-frase{
-            max-width:650px;
+            max-width:700px;
             margin:0 auto 60px auto;
-            color:#555;
+            color: #333;
             line-height:1.6;
+            font-size: 18px;
         }
  
         .mision-bloques{
@@ -362,10 +366,11 @@
         }
  
         .productos-frase {
-            max-width:650px;
+            max-width:700px;
             margin:0 auto 40px auto;
-            color:#555;
+            color:#333;
             line-height:1.6;
+            font-size: 18px;
         }
  
         .productos-bloques {
@@ -495,10 +500,11 @@
         }
  
         .elegirnos-frase{
-            max-width:650px;
+            max-width:700px;
             margin:0 auto 60px auto;
-            color:#555;
+            color:#333;
             line-height:1.6;
+            font-size: 18px;
         }
  
         .elegirnos-bloques{
@@ -729,6 +735,7 @@
 </head>
  
 <body>
+    
  
 <!-- Ícono flotante -->
 <div id="btn-accesibilidad">

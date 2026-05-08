@@ -53,5 +53,11 @@
         <div class="footer-linea"></div>
  
     </footer>
-
+<script>
+grecaptcha.ready(function() {
+    grecaptcha.execute('TU_SITE_KEY', {action: 'register'}).then(function(token) {
+        document.getElementById('token').value = token;
+    });
+});
+</script>
 </html>
