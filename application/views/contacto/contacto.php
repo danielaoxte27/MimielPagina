@@ -416,7 +416,7 @@ a.mapa-dir-item span {
                 <input id="f_correo" type="email" placeholder="usuario@email.com">
             </div>
             <div class="form-group">
-                <label>Teléfono</label>
+                <label>Teléfono *</label>
                 <input id="f_telefono" type="tel" placeholder="(999) 000-0000">
             </div>
             <div class="form-group">
@@ -439,15 +439,7 @@ a.mapa-dir-item span {
                     <svg viewBox="0 0 24 24" style="width:18px;height:18px;stroke:#333;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;">
                         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
                     </svg>
-                    Enviar comentario
-                </button>
-                <button class="btn-queja" onclick="enviarFormulario('queja')">
-                    <svg viewBox="0 0 24 24" style="width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;">
-                        <circle cx="12" cy="12" r="10"/>
-                        <line x1="12" y1="8" x2="12" y2="12"/>
-                        <line x1="12" y1="16" x2="12.01" y2="16"/>
-                    </svg>
-                    Enviar queja
+                    Enviar
                 </button>
             </div>
             <p id="msg_respuesta" class="msg-respuesta"></p>
@@ -569,12 +561,16 @@ function enviarFormulario(tipo) {
     const telefono = document.getElementById('f_telefono').value.trim();
     const asunto   = document.getElementById('f_asunto').value;
     const mensaje  = document.getElementById('f_mensaje').value.trim();
-    const resp     = document.getElementById('msg_respuesta');
 
+    // Validación de campos vacíos
     if (!nombre || !correo || !asunto || !mensaje) {
-        resp.style.display = 'block';
-        resp.style.color   = '#dc2626';
-        resp.textContent   = 'Por favor completa los campos obligatorios.';
+        Swal.fire({
+            icon: 'warning',
+            title: '¡Campos incompletos!',
+            text: 'Por favor completa todos los campos obligatorios.',
+            confirmButtonText: 'Entendido',
+            confirmButtonColor: '#f5c518'
+        });
         return;
     }
 
@@ -590,16 +586,51 @@ function enviarFormulario(tipo) {
         method: 'POST',
         body: formData
     })
-    .then(r => r.json())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Error HTTP: ' + response.status);
+        }
+        return response.json();
+    })
     .then(data => {
-        resp.style.display = 'block';
-        resp.style.color   = '#16a34a';
-        resp.textContent   = 'Mensaje enviado correctamente';
+
+        if (data.status === 'ok') {
+            // ÉXITO
+            Swal.fire({
+                icon: 'success',
+                title: '¡Mensaje enviado!',
+                text: data.msg || 'Nos pondremos en contacto contigo pronto.',
+                confirmButtonText: 'Aceptar',
+                confirmButtonColor: '#f5c518'
+            });
+
+            // Limpiar formulario
+            document.getElementById('f_nombre').value   = '';
+            document.getElementById('f_correo').value   = '';
+            document.getElementById('f_telefono').value = '';
+            document.getElementById('f_asunto').value   = '';
+            document.getElementById('f_mensaje').value  = '';
+
+        } else {
+            // ERROR
+            Swal.fire({
+                icon: 'error',
+                title: '¡Algo salió mal!',
+                text: data.msg || 'No se pudo enviar el mensaje. Intenta de nuevo.',
+                confirmButtonText: 'Intentar de nuevo',
+                confirmButtonColor: '#f97316'
+            });
+        }
     })
     .catch(() => {
-        resp.style.display = 'block';
-        resp.style.color   = '#dc2626';
-        resp.textContent   = 'Error al enviar. Intenta de nuevo.';
+        // Error de red o HTTP
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'No se pudo enviar el mensaje. Verifica tu conexión e intenta de nuevo.',
+            confirmButtonText: 'Aceptar',
+            confirmButtonColor: '#f97316'
+        });
     });
 }
 </script>

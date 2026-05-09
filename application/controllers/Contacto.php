@@ -42,8 +42,14 @@ class Contacto extends CI_Controller {
         $this->load->view('contacto/contacto', $data);
         $this->load->view('secciones/footer', $data);
     }
-
+    
     public function enviar(){
+
+        header('Content-Type: application/json');
+
+        ini_set('display_errors', 0);
+        error_reporting(0);
+
         $nombre   = $this->input->post('nombre');
         $correo   = $this->input->post('correo');
         $telefono = $this->input->post('telefono');
@@ -51,6 +57,34 @@ class Contacto extends CI_Controller {
         $mensaje  = $this->input->post('mensaje');
         $tipo     = $this->input->post('tipo');
 
-        echo json_encode(['status' => 'ok', 'msg' => 'Mensaje enviado correctamente']);
+        if(!$nombre || !$correo || !$asunto || !$mensaje){
+            echo json_encode(['status' => 'error', 'msg' => 'Campos obligatorios faltantes']);
+            exit;
+        }
+
+        $data = [
+            'nombre'   => $nombre,
+            'correo'   => $correo,
+            'telefono' => $telefono,
+            'asunto'   => $asunto,
+            'mensaje'  => $mensaje,
+            'tipo'     => $tipo,
+            'fecha'    => date('Y-m-d')
+        ];
+
+        try {
+            $guardar = $this->Contacto_model->guardar_mensaje($data);
+
+            if($guardar){
+                echo json_encode(['status' => 'ok', 'msg' => 'Mensaje enviado correctamente']);
+            } else {
+                echo json_encode(['status' => 'error', 'msg' => 'Error al guardar en base de datos']);
+            }
+
+        } catch(Exception $e){
+            echo json_encode(['status' => 'error', 'msg' => 'Error: ' . $e->getMessage()]);
+        }
+
+        exit;
     }
 }

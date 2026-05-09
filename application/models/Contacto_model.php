@@ -30,4 +30,8 @@ class Contacto_model extends CI_Model {
             ->get('cat_contacto_sucursales')
             ->result();
     }
+
+    public function guardar_mensaje($data){
+        return $this->db->insert('cat_contacto_mensajes', $data);
+    }
 }
