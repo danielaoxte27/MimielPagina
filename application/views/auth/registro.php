@@ -94,6 +94,29 @@
             font-size: 13px;
         }
 
+        .form-group label::after{
+            content: " *";
+            color:#F28C28;
+        }
+
+        .form-group input:focus{
+            outline:none;
+            border-color:#F28C28;
+            box-shadow:0 0 0 2px rgba(242,140,40,.12);
+        }
+
+        .form-group input.error{
+            border-color:#e74c3c;
+        }
+
+        .error-message{
+            color:#e74c3c;
+            font-size:12px;
+            margin-top:6px;
+            min-height:18px;
+            display:block;
+        }
+
         .btn-registrar{
             width:100%;
             padding:10px;
@@ -125,51 +148,57 @@
 
 <div class="registro-container">
 
-    <a href="<?= site_url('Welcome/principal') ?>" class="cerrar">✕</a>
+    <a href="<?= site_url('principal') ?>" class="cerrar">✕</a>
 
-    <a href="<?= site_url('Welcome/principal') ?>">
+    <a href="<?= site_url('principal') ?>">
         <img src="<?= base_url($img['logo']->ruta.$img['logo']->nombre_archivo); ?>" alt="Logo Mimiel">
     </a>
 
     <h2>Crear cuenta</h2>
 
     
-    <form method="POST" action="<?= site_url('Welcome/login') ?>" onsubmit="return validarPasswords()">
+    <form method="POST" action="<?= site_url('principal/login') ?>" onsubmit="return validarFormulario()" novalidate>
 
 
 
         <div class="form-group">
-            <label>Nombre</label>
-            <input type="text" name="nombre" required>
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" id="nombre" required>
+            <span class="error-message" id="nombre-error"></span>
         </div>
 
     <div class="row">
 
     <div class="form-group">
-        <label>Apellido paterno</label>
-        <input type="text" name="apellido_paterno" required>
+        <label for="apellido_paterno">Apellido paterno</label>
+        <input type="text" name="apellido_paterno" id="apellido_paterno" required>
+        <span class="error-message" id="apellido_paterno-error"></span>
     </div>
 
     <div class="form-group">
-        <label>Apellido materno</label>
-        <input type="text" name="apellido_materno" required>
+        <label for="apellido_materno">Apellido materno</label>
+        <input type="text" name="apellido_materno" id="apellido_materno" required>
+        <span class="error-message" id="apellido_materno-error"></span>
     </div>
 
     </div>
 
         <div class="form-group">
-            <label>Correo electrónico</label>
-            <input type="email" name="email" required>
+            <label for="email">Correo electrónico</label>
+            <input type="email" name="email" id="email" required>
+            <span class="error-message" id="email-error"></span>
         </div>
 
         <div class="form-group">
-            <label>Contraseña</label>
+            <label for="password">Contraseña</label>
             <input type="password" name="password" id="password" required>
+            <span class="error-message" id="password-error"></span>
         </div>
 
         <div class="form-group">
-            <label>Confirmar contraseña</label>
+            <label for="confirm_password">Confirmar contraseña</label>
             <input type="password" name="confirm_password" id="confirm_password" required>
+            <span class="error-message" id="confirm_password-error"></span>
         </div>
 
        <div class="captcha-container">
@@ -181,24 +210,92 @@
 
     <div class="login-link">
         ¿Ya tienes cuenta?
-        <a href="<?= site_url('Welcome/login') ?>">Inicia sesión aquí</a>
+        <a href="<?= site_url('principal/login') ?>">Inicia sesión aquí</a>
     </div>
 
 </div>
 
 
 <script>
-function validarPasswords(){
-    const pass = document.getElementById('password').value;
-    const confirm = document.getElementById('confirm_password').value;
+const form = document.querySelector('form');
+const inputs = form.querySelectorAll('input[required]');
 
-    if(pass !== confirm){
-        alert('Las contraseñas no coinciden');
+function setError(input, message) {
+    const errorEl = document.getElementById(`${input.id}-error`);
+    if (errorEl) {
+        errorEl.textContent = message;
+    }
+    input.classList.add('error');
+}
+
+function clearError(input) {
+    const errorEl = document.getElementById(`${input.id}-error`);
+    if (errorEl) {
+        errorEl.textContent = '';
+    }
+    input.classList.remove('error');
+}
+
+function validarCampo(input) {
+    clearError(input);
+
+    if (!input.value.trim()) {
+        setError(input, 'Este campo es obligatorio');
         return false;
+    }
+
+    if (input.id === 'password' && input.value.length > 13) {
+        setError(input, 'La contraseña no puede superar 13 caracteres');
+        return false;
+    }
+
+    if (input.id === 'confirm_password') {
+        const passwordValue = document.getElementById('password').value;
+        if (input.value !== passwordValue) {
+            setError(input, 'Las contraseñas no coinciden');
+            return false;
+        }
     }
 
     return true;
 }
+
+function validarFormulario() {
+    let valido = true;
+
+    inputs.forEach((input) => {
+        if (!validarCampo(input)) {
+            valido = false;
+        }
+    });
+
+    return valido;
+}
+
+inputs.forEach((input) => {
+    input.addEventListener('input', () => {
+        if (input.id === 'password' && input.value.length > 13) {
+            setError(input, 'La contraseña no puede superar 13 caracteres');
+            return;
+        }
+
+        if (input.id === 'confirm_password') {
+            const passwordValue = document.getElementById('password').value;
+            if (input.value && input.value !== passwordValue) {
+                setError(input, 'Las contraseñas no coinciden');
+                return;
+            }
+        }
+
+        if (input.value.trim()) {
+            clearError(input);
+        }
+    });
+
+    input.addEventListener('blur', () => {
+        validarCampo(input);
+    });
+});
 </script>
 
 </body>

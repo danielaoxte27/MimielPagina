@@ -84,6 +84,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 28px;
+    align-items: stretch;
 }
 
 @media (max-width: 900px) { .recetas-grid { grid-template-columns: repeat(2,1fr); } }
@@ -97,6 +98,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
     display: flex;
     flex-direction: column;
     transition: all .22s ease;
+    height: 100%;
 }
 
 .recetas-card:hover {
@@ -121,20 +123,44 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
     display: flex;
     flex-direction: column;
     flex: 1;
+    min-height: 0;
+}
+
+.recetas-card-body h2 {
+    margin-bottom: 10px;
+}
+
+.recetas-card-body p {
+    flex: 1;
+    margin-bottom: 18px;
+}
+
+.recetas-card-footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: flex-start;
 }
 
 .btn-leer-mas {
     display: inline-flex;
     align-items: center;
-    gap: 7px;
+    justify-content: center;
+    gap: 8px;
     background: #e69d00;
     color: #fff;
     font-weight: 700;
     font-size: .8rem;
-    padding: 8px 14px;
-    border-radius: 8px;
+    padding: 8px 12px;
+    border-radius: 10px;
     text-decoration: none;
-    margin-top: 15px;
+    min-height: 38px;
+    width: auto;
+    transition: transform .18s ease, background .18s ease;
+}
+
+.btn-leer-mas:hover {
+    background: #d78a00;
+    transform: translateY(-1px);
 }
 
 .btn-agregar {
@@ -196,7 +222,12 @@ if(!empty($articulos)): ?>
             <div class="recetas-card-body">
                 <h2 style="font-size: 1rem; font-weight:800; margin:0;"><?= htmlspecialchars($art->nombre ?? 'Sin título') ?></h2>
                 <p style="font-size: .82rem; color:#777; line-height:1.5;"><?= htmlspecialchars(strip_tags($art->descripcion ?? '')) ?></p>
-                <a href="<?= site_url('recetas/recetasdetalle/'.$art->id) ?>" class="btn-leer-mas">Más información</a>
+                <div class="recetas-card-footer">
+                    <a href="<?= site_url('recetas/recetasdetalle/'.$art->id) ?>" class="btn-leer-mas">
+                        Más información
+                        <span aria-hidden="true">→</span>
+                    </a>
+                </div>
             </div>
         </div>
     <?php endforeach; ?>

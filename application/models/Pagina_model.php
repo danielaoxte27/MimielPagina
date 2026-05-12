@@ -32,7 +32,12 @@ class Pagina_model extends CI_Model {
         $query = $this->db->query($sql);
  
         if($query->num_rows() > 0){
-            return $query->result();
+            $secciones = $query->result();
+            // Limpiar href removiendo # si existe
+            foreach($secciones as $seccion){
+                $seccion->href = ltrim($seccion->href, '#');
+            }
+            return $secciones;
         }else{
             return false;
         }

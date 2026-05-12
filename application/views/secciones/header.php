@@ -789,7 +789,7 @@
 </div>
  
 <header>
-    <a href="<?= site_url('Welcome/principal') ?>" class="logo">
+    <a href="<?= site_url('principal') ?>" class="logo">
         <img src="<?= base_url($img['logo']->ruta.$img['logo']->nombre_archivo); ?>" alt="Logo de la empresa">
     </a>
  
@@ -815,7 +815,7 @@
                 </svg>
             </a>
 
-            <a href="<?= site_url('Welcome/login') ?>" class="btn-login-icon">
+            <a href="<?= site_url('principal/login') ?>" class="btn-login-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                     <circle cx="12" cy="7" r="4"></circle>

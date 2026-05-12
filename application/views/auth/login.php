@@ -120,9 +120,9 @@
 <div class="login-container">
 
     
-    <a href="<?= site_url('Welcome/principal') ?>" class="cerrar">✕</a>
- 
-    <a href="<?= site_url('Welcome/principal') ?>">
+    <a href="<?= site_url('principal') ?>" class="cerrar">✕</a>
+
+    <a href="<?= site_url('principal') ?>">
         <img src="<?= base_url($img['logo']->ruta.$img['logo']->nombre_archivo); ?>" alt="Logo Mimiel">
     </a>
  
@@ -146,7 +146,7 @@
  
     <div class="registro-link">
         ¿No tienes cuenta?
-        <a href="<?= site_url('Welcome/registro') ?>">Regístrate aquí</a>
+        <a href="<?= site_url('principal/registro') ?>">Regístrate aquí</a>
     </div>
  
 </div>

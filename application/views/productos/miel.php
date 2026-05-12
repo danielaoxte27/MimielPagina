@@ -170,17 +170,17 @@
 
 .productos-bloques {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 18px;
 }
 
 .producto-item {
     background: white;
-    border-radius: 20px;
+    border-radius: 18px;
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
     border: 1px solid #f0ebe0;
-    transition: all 0.32s ease;
+    transition: all 0.28s ease;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -195,7 +195,7 @@
     background: linear-gradient(90deg, #F4C542, #F28C28);
     transform: scaleX(0);
     transform-origin: left;
-    transition: transform 0.32s ease;
+    transition: transform 0.28s ease;
     z-index: 1;
 }
 
@@ -210,7 +210,7 @@
 
 .tag-img-wrap {
     width: 100%;
-    height: 280px;
+    height: 220px;
     overflow: hidden;
     background: linear-gradient(180deg, #ffffff 0%, #ffffff 100%);
     display: flex;
@@ -222,9 +222,9 @@
 .tag-img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
-    padding: 20px;
-    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    object-fit: cover;
+    padding: 16px;
+    transition: transform 0.35s ease;
 }
 
 .producto-item:hover .tag-img {
@@ -305,8 +305,69 @@
     display: inline-block;
 }
 
+.btn-ver-mas {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #e69d00;
+    color: #fff;
+    font-weight: 700;
+    font-size: .82rem;
+    padding: 9px 16px;
+    border-radius: 50px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all .22s ease;
+}
+
+.btn-ver-mas:hover {
+    transform: translateY(-1px);
+    background: #d17d00;
+}
+
+.prod-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    padding-top: 10px;
+}
+
+.prod-actions {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    width: auto;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.btn-carrito-producto,
+.btn-ver-mas {
+    min-width: 110px;
+    flex: 1 1 120px;
+}
+
+.btn-ver-mas {
+    justify-content: center;
+}
+
+@media (max-width: 520px) {
+    .prod-actions {
+        flex-wrap: wrap;
+    }
+    .btn-carrito-producto,
+    .btn-ver-mas {
+        flex: 1 1 100%;
+        min-width: 0;
+    }
+}
+
 .btn-carrito-producto {
-    padding: 10px 20px;
+    padding: 9px 14px;
     border: none;
     border-radius: 50px;
     background: linear-gradient(90deg, #F28C28, #e69d00);
@@ -337,9 +398,12 @@
 }
 
 @media (max-width: 1200px) {
+    .productos-bloques { grid-template-columns: repeat(4, 1fr); }
+}
+@media (max-width: 1000px) {
     .productos-bloques { grid-template-columns: repeat(3, 1fr); }
 }
-@media (max-width: 800px) {
+@media (max-width: 900px) {
     .productos-hero h2 { font-size: 32px; }
     .productos-bloques { grid-template-columns: repeat(2, 1fr); gap: 14px; }
 }
@@ -373,12 +437,12 @@
     <div class="productos-container">
         <div class="categorias-nav">
             <a href="<?php echo site_url('productos?categoria=0'); ?>"
-            class="btn-categoria <?php echo  0 ? 'activo' : ''; ?>">TODOS</a>
+            class="btn-categoria <?php echo $categoria_actual == 0 ? 'activo' : ''; ?>">TODOS</a>
             
             <?php if(!empty($categorias)): ?>
                 <?php foreach($categorias as $c): ?>
                     <a href="<?php echo site_url('productos?categoria='.$c->id); ?>"
-                    class="btn-categoria <?php echo (int)$c->id ? 'activo' : ''; ?>">
+                    class="btn-categoria <?php echo $categoria_actual == (int)$c->id ? 'activo' : ''; ?>">
                     <?php echo $c->nombre; ?>
                     </a>
                 <?php endforeach; ?> 
@@ -387,7 +451,12 @@
 
         <span class="prod-label">Explora nuestra colección</span>
         <p class="prod-count" id="prod-count">
-            <?php echo  1 ? 's' : ''; ?> disponibles
+            <?php 
+                $total = isset($productos_por_categoria[$categoria_actual]) 
+                    ? $productos_por_categoria[$categoria_actual] 
+                    : (isset($productos_por_categoria[0]) ? $productos_por_categoria[0] : 0);
+                echo $total . ' productos disponibles' . ($total != 1 ? 's' : '');
+            ?>
         </p>
 
         <div class="productos-bloques" id="productosGrid">
@@ -408,15 +477,20 @@
                                 <div class="precio">
                                     <span>$</span><?php echo number_format($p->precio, 2); ?>
                                 </div>
-                                <button class="btn-carrito-producto"
-                                    onclick="
-                                        this.classList.add('agregado');
-                                        this.innerHTML='✓ Agregado';
-                                        let b=this;
-                                        setTimeout(()=>{b.classList.remove('agregado');b.innerHTML='+ Agregar';},1500);
-                                    ">
-                                    + Agregar
-                                </button>
+                                <div class="prod-actions">
+                                    <button class="btn-carrito-producto"
+                                        onclick="
+                                            this.classList.add('agregado');
+                                            this.innerHTML='✓ Agregado';
+                                            let b=this;
+                                            setTimeout(()=>{b.classList.remove('agregado');b.innerHTML='+ Agregar';},1500);
+                                        ">
+                                        + Agregar
+                                    </button>
+                                    <a href="<?php echo site_url('productos/productosdetalle/'.$p->id); ?>" class="btn-ver-mas">
+                                        Ver más...
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>

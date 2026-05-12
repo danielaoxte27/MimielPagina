@@ -31,6 +31,9 @@ class Productos extends CI_Controller {
         //  PRODUCTOS 
         $data["productos"] = $this->Producto_model->obtener_productos($categoria, $busqueda);
 
+        //  CONTAR PRODUCTOS POR CATEGORÍA
+        $data["productos_por_categoria"] = $this->Producto_model->contar_productos_por_categoria();
+
         //  PARA MANTENER SELECCIÓN EN LA VISTA
         $data["categoria_actual"] = $categoria;
         $data["busqueda"] = $busqueda;
@@ -40,6 +43,28 @@ class Productos extends CI_Controller {
         $this->load->view("productos/miel", $data);
         $this->load->view("secciones/footer", $data);
 	}
+
+    public function productosdetalle($id = null)
+    {
+        if (!$id || !is_numeric($id)) {
+            redirect('productos');
+        }
+
+        $producto = $this->Producto_model->obtener_producto_por_id((int)$id);
+        if (!$producto) {
+            redirect('productos');
+        }
+
+        $data = [];
+        $data["img"] = $this->cargar_imagenes();
+        $data["secciones"] = $this->cargar_secciones();
+        $data["footer"] = $this->cargar_footer();
+        $data["producto"] = $producto;
+
+        $this->load->view("secciones/header", $data);
+        $this->load->view("productos/productosdetalle", $data);
+        $this->load->view("secciones/footer", $data);
+    }
 
     //  FUNCIONES
 
