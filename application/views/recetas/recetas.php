@@ -68,7 +68,6 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
     margin: 0 0 20px;
 }
 
-/* ── BUSCADOR STICKY ── */
 .search-sticky-wrapper {
     position: sticky;
     top: 90px;
@@ -82,7 +81,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 }
 
 .search-sticky-wrapper.is-scrolled {
-    background-color: #F4C542;
+    background: linear-gradient(to bottom, #F4C542, #F28C28);
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     margin-top: 0;
     width: 100%;

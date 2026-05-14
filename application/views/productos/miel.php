@@ -67,7 +67,6 @@
     font-weight: 300;
 }
 
-/* --- BLOQUE DEL BUSCADOR (Efecto Recetas) --- */
 .search-sticky-wrapper {
     position: sticky;
     top: 90px; 
@@ -81,7 +80,7 @@
 }
 
 .is-scrolled {
-    background-color: #F4C542; 
+    background: linear-gradient(to bottom, #F4C542, #F28C28);
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     margin-top: 0; 
     width: 100%; 
@@ -112,7 +111,6 @@
 }
 
 .hero-search input::placeholder { color: #aaa; }
-/* ------------------------------------------- */
 
 .productos-container {
     max-width: 1500px;
