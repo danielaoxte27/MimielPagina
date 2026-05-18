@@ -411,6 +411,7 @@
     .prod-footer { flex-direction: column; align-items: stretch; }
     .btn-carrito-producto { text-align: center; }
 }
+
 </style>
 
 <div class="productos">
@@ -485,6 +486,11 @@
                                         ">
                                         + Agregar
                                     </button> -->
+                                    <div class="contador">
+                                        <button class="btn-menos">-</button>
+                                        <input type="text" value="1" class="cantidad" readonly>
+                                        <button class="btn-mas">+</button>
+                                    </div>
                                     <a href="<?php echo site_url('productos/productosdetalle/'.$p->id); ?>" class="btn-ver-mas">
                                         Ver más...
                                     </a>
@@ -501,6 +507,9 @@
 </div>
 
 <script>
+    
+
+
 (function(){
     var input = document.getElementById('buscarInput');
     var wrapper = document.getElementById('search-wrapper');
