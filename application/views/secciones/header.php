@@ -130,6 +130,10 @@
             transition:0.3s;
             height:42px;
         }
+        .btn-carrito-icon svg{
+            width:24px;   
+            height:24px;
+        }
  
         .btn-carrito:hover{
             background-color: #fabc12;
@@ -807,9 +811,8 @@
         <?php endif; ?>
  
         <div class="botones-nav">
-            <a href="" class="btn-carrito">
-        
-                <svg class="icono-carrito" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+            <a href="" class="btn-login-icon btn-carrito-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="9" cy="21" r="1"></circle>
                     <circle cx="20" cy="21" r="1"></circle>
                     <path d="M1 1h4l2.6 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.5L23 6H6"></path>
