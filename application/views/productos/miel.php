@@ -374,6 +374,7 @@
     border-radius: 50px;
     padding: 4px;
     width: fit-content;
+    flex-shrink: 0;  
 }
 
 .contador button {
@@ -411,7 +412,7 @@
     pointer-events: none;
 }
 
-/* FOOTER y ACCIONES rediseñados */
+
 .prod-footer {
     display: flex;
     flex-direction: column;
@@ -423,12 +424,10 @@
 .prod-actions {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     gap: 10px;
     width: 100%;
 }
 
-/* VER MÁS ocupa todo el ancho restante */
 .btn-ver-mas {
     display: flex;
     align-items: center;
@@ -444,7 +443,8 @@
     border: none;
     cursor: pointer;
     transition: all .22s ease;
-    flex: 1;  /* ocupa todo el espacio disponible */
+    flex: 1;
+    min-width: 0;
 }
 
 .btn-ver-mas:hover {
@@ -452,7 +452,7 @@
     box-shadow: 0 6px 18px rgba(242,140,40,0.35);
 }
 
-/* quitar overrides viejos */
+
 .btn-carrito-producto,
 .btn-ver-mas {
     min-width: unset;
