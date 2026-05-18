@@ -550,12 +550,12 @@
                                     </button> -->
                                     
                                         <div class="contador" data-stock="<?php echo $p->stock; ?>">
-    <button class="btn-menos">-</button>
-    <input type="text" value="0" class="cantidad" readonly>
-    <button class="btn-mas">+</button>
-</div>
+                                            <button class="btn-menos">-</button>
+                                            <input type="text" value="0" class="cantidad" readonly>
+                                            <button class="btn-mas">+</button>
+                                        </div>
                                     <a href="<?php echo site_url('productos/productosdetalle/'.$p->id); ?>" class="btn-ver-mas">
-                                        Ver más...
+                                        Ver más
                                     </a>
                                 </div>
                             </div>
