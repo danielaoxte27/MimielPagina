@@ -548,11 +548,12 @@
                                         ">
                                         + Agregar
                                     </button> -->
-                                    <div class="contador">
-                                        <button class="btn-menos">-</button>
-                                        <input type="text" value="0" class="cantidad" readonly>
-                                        <button class="btn-mas">+</button>
-                                    </div>
+                                    
+                                        <div class="contador" data-stock="<?php echo $p->stock; ?>">
+    <button class="btn-menos">-</button>
+    <input type="text" value="0" class="cantidad" readonly>
+    <button class="btn-mas">+</button>
+</div>
                                     <a href="<?php echo site_url('productos/productosdetalle/'.$p->id); ?>" class="btn-ver-mas">
                                         Ver más...
                                     </a>
@@ -571,28 +572,42 @@
 <script>
   document.addEventListener("DOMContentLoaded", function(){
 
-    document.querySelectorAll('.contador').forEach(function(contador){
+    const burbujaCarrito = document.getElementById("contador-carrito");
+    let totalCarrito = 0;
 
-        const btnMas = contador.querySelector('.btn-mas');
+    document.querySelectorAll('.contador').forEach(function(contador){
+        const btnMas   = contador.querySelector('.btn-mas');
         const btnMenos = contador.querySelector('.btn-menos');
-        const input = contador.querySelector('.cantidad');
+        const input    = contador.querySelector('.cantidad');
+        const stockMax = parseInt(contador.dataset.stock) || 0;
 
         btnMas.addEventListener('click', function(){
-            let valor = parseInt(input.value) || 1;
-            input.value = valor + 1;
-        });
-
-        btnMenos.addEventListener('click', function(){
-            let valor = parseInt(input.value) || 1;
-            if(valor > 1){
-                input.value = valor - 1;
+            let valor = parseInt(input.value) || 0;
+            if(valor < stockMax){
+                input.value = valor + 1;
+                totalCarrito++;
+                burbujaCarrito.textContent = totalCarrito;
+            } else {
+                // opcional: avisar al usuario
+                btnMas.style.opacity = '0.4';
+                btnMas.style.cursor  = 'not-allowed';
             }
         });
 
+        btnMenos.addEventListener('click', function(){
+            let valor = parseInt(input.value) || 0;
+            if(valor > 0){
+                input.value = valor - 1;
+                if(totalCarrito > 0) totalCarrito--;
+                burbujaCarrito.textContent = totalCarrito;
+                // restaurar botón + si estaba bloqueado
+                btnMas.style.opacity = '1';
+                btnMas.style.cursor  = 'pointer';
+            }
+        });
     });
 
-});  
-
+});
 
 (function(){
     var input = document.getElementById('buscarInput');

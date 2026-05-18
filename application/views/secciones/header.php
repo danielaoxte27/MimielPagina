@@ -733,6 +733,30 @@
             display:none !important;
             }
         }
+        .btn-carrito-icon {
+    position: relative; /* 🔥 necesario */
+}
+
+#contador-carrito {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+
+    background: red;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
     </style>
  
     <link rel="stylesheet" href="<?= base_url('assets/css/accesibilidad.css'); ?>">
@@ -812,6 +836,7 @@
  
         <div class="botones-nav">
             <a href="" class="btn-login-icon btn-carrito-icon">
+                 <span id="contador-carrito">0</span> 
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="9" cy="21" r="1"></circle>
                     <circle cx="20" cy="21" r="1"></circle>
@@ -832,4 +857,12 @@
 <script src="<?= base_url('assets/js/accesibilidad.js'); ?>"></script>
 <script src="<?= base_url('assets/js/navbar.js'); ?>"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+let contador = 0;
+
+function agregarAlCarrito() {
+    contador++;
+    document.getElementById("contador-carrito").textContent = contador;
+}
+</script>
 </header>

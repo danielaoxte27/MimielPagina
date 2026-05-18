@@ -19,18 +19,31 @@ class Producto_model extends CI_Model {
 
     // OBTENER PRODUCTOS 
 public function obtener_productos($categoria = 0, $busqueda = null){
+    $sql = "
+        SELECT 
+            p.id, p.nombre, p.descripcion, p.precio, p.stock,
+            p.estatus,
+            c.nombre AS categoria_nombre,
+            i.ruta AS imagen_ruta,
+            i.nombre_archivo AS imagen_nombre
+        FROM cat_productos p
+        LEFT JOIN cat_categorias c ON c.id = p.id_categoria
+        LEFT JOIN cat_imagenes i ON i.id = p.id_imagen
+        WHERE p.estatus = 1
+    ";
 
-    $query = $this->db->query("CALL ObtenerProductos(?, ?)", [
-        $categoria,
-        $busqueda
-    ]);
+    if($categoria > 0){
+        $sql .= " AND p.id_categoria = " . (int)$categoria;
+    }
 
-    $result = $query->result();
-    
-    // Limpiar el buffer de resultados del CALL para evitar "Commands out of sync"
-    while($this->db->conn_id->more_results() && $this->db->conn_id->next_result()) {}
-    
-    return $result;
+    if(!empty($busqueda)){
+        $busqueda = $this->db->escape_like_str($busqueda);
+        $sql .= " AND (p.nombre LIKE '%{$busqueda}%' OR p.descripcion LIKE '%{$busqueda}%')";
+    }
+
+    $sql .= " ORDER BY p.id ASC";
+
+    return $this->db->query($sql)->result();
 }
 
 // CONTAR PRODUCTOS POR CATEGORÍA
