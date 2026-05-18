@@ -250,6 +250,7 @@
     display: flex;
     flex-direction: column;
     flex: 1;
+      
 }
 
 .producto-item h3 {
@@ -265,8 +266,8 @@
     font-size: 13px;
     color: #aaa;
     line-height: 1.6;
-    margin-bottom: 14px;
-    flex: 1;
+    margin-bottom: 0;
+    flex-grow: 1;
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -276,14 +277,17 @@
 .prod-divider {
     height: 1px;
     background: #f0ebe0;
-    margin: 0 0 14px;
+    margin: 0 0 4px;
 }
+
 
 .prod-footer {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: stretch;
     gap: 10px;
+    padding-top: 0;
+    margin-top: 0;
 }
 
 .precio {
@@ -367,14 +371,14 @@
 .contador {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     align-self: center;
     gap: 0;
     margin: 0;
     background: #f9f3e8;
     border-radius: 50px;
     padding: 4px;
-    width: fit-content;
+    width: 100%;
     flex-shrink: 0;  
 }
 
@@ -393,14 +397,18 @@
     align-items: center;
     justify-content: center;
     line-height: 1;
+     min-width: 34px;      
+    flex: 0 0 34px;
 }
 
 .contador button:hover {
     background: #F28C28;
     color: #fff;
+    background: #d96d0f;
 }
 
 .contador input {
+    flex: 1;
     width: 36px;
     text-align: center;
     border: none;
@@ -420,6 +428,7 @@
     align-items: stretch;
     gap: 10px;
     padding-top: 10px;
+    margin-top: auto; 
 }
 
 .prod-actions {
@@ -524,8 +533,8 @@
                         <div class="producto-contenido">
                             <h3><?php echo $p->nombre; ?></h3>
                             <p class="prod-desc"><?php echo $p->descripcion; ?></p>
-                            <div class="prod-divider"></div>
                             <div class="prod-footer">
+                                <div class="prod-divider"></div>
                                 <div class="precio">
                                     <span>$</span><?php echo number_format($p->precio, 2); ?>
                                 </div>
@@ -541,7 +550,7 @@
                                     </button> -->
                                     <div class="contador">
                                         <button class="btn-menos">-</button>
-                                        <input type="text" value="1" class="cantidad" readonly>
+                                        <input type="text" value="0" class="cantidad" readonly>
                                         <button class="btn-mas">+</button>
                                     </div>
                                     <a href="<?php echo site_url('productos/productosdetalle/'.$p->id); ?>" class="btn-ver-mas">
