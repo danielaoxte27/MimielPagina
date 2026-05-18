@@ -411,6 +411,39 @@
     .prod-footer { flex-direction: column; align-items: stretch; }
     .btn-carrito-producto { text-align: center; }
 }
+.contador{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    margin-top:10px;
+}
+
+.contador button{
+    width:32px;
+    height:32px;
+    border:none;
+    background:#e69d00;
+    color:#fff;
+    font-size:18px;
+    font-weight:bold;
+    border-radius:6px;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.contador button:hover{
+    background:#fabc12;
+}
+
+.contador input{
+    width:40px;
+    text-align:center;
+    border:1px solid #ccc;
+    border-radius:6px;
+    font-weight:bold;
+    padding:5px;
+}
 
 </style>
 
