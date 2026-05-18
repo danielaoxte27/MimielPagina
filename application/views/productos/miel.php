@@ -368,6 +368,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    align-self: center;
     gap: 0;
     margin: 0;
     background: #f9f3e8;
@@ -423,8 +424,9 @@
 
 .prod-actions {
     display: flex;
-    align-items: center;
-    gap: 10px;
+    flex-direction: column;  
+    align-items: stretch;
+    gap: 8px;
     width: 100%;
 }
 
