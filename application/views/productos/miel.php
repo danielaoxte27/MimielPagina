@@ -208,7 +208,7 @@
 
 .tag-img-wrap {
     width: 100%;
-    height: 220px;
+    height: 170px;
     overflow: hidden;
     background: linear-gradient(180deg, #ffffff 0%, #ffffff 100%);
     display: flex;
@@ -220,8 +220,8 @@
 .tag-img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    padding: 16px;
+    object-fit: contain;
+    padding: 10px;
     transition: transform 0.35s ease;
 }
 
