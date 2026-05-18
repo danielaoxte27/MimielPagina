@@ -476,7 +476,7 @@
                                     <span>$</span><?php echo number_format($p->precio, 2); ?>
                                 </div>
                                 <div class="prod-actions">
-                                    <button class="btn-carrito-producto"
+                                    <!-- <button class="btn-carrito-producto"
                                         onclick="
                                             this.classList.add('agregado');
                                             this.innerHTML='✓ Agregado';
@@ -484,7 +484,7 @@
                                             setTimeout(()=>{b.classList.remove('agregado');b.innerHTML='+ Agregar';},1500);
                                         ">
                                         + Agregar
-                                    </button>
+                                    </button> -->
                                     <a href="<?php echo site_url('productos/productosdetalle/'.$p->id); ?>" class="btn-ver-mas">
                                         Ver más...
                                     </a>

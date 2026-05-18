@@ -133,6 +133,7 @@
  
         .btn-carrito:hover{
             background-color: #fabc12;
+            margin-left:auto;
         }
        .botones-nav{
             display:flex;
@@ -807,7 +808,7 @@
  
         <div class="botones-nav">
             <a href="" class="btn-carrito">
-                Agregar al carrito
+        
                 <svg class="icono-carrito" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="9" cy="21" r="1"></circle>
                     <circle cx="20" cy="21" r="1"></circle>
