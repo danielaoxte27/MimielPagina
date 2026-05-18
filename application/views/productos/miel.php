@@ -303,55 +303,7 @@
     display: inline-block;
 }
 
-.btn-ver-mas {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: #e69d00;
-    color: #fff;
-    font-weight: 700;
-    font-size: .82rem;
-    padding: 9px 16px;
-    border-radius: 50px;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    transition: all .22s ease;
-}
 
-.btn-ver-mas:hover {
-    transform: translateY(-1px);
-    background: #d17d00;
-}
-
-.prod-footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 14px;
-    padding-top: 10px;
-}
-
-.prod-actions {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    width: auto;
-    max-width: 100%;
-    margin: 0 auto;
-}
-
-.btn-carrito-producto,
-.btn-ver-mas {
-    min-width: 110px;
-    flex: 1 1 120px;
-}
-
-.btn-ver-mas {
-    justify-content: center;
-}
 
 @media (max-width: 520px) {
     .prod-actions {
@@ -411,38 +363,104 @@
     .prod-footer { flex-direction: column; align-items: stretch; }
     .btn-carrito-producto { text-align: center; }
 }
-.contador{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:8px;
-    margin-top:10px;
+
+.contador {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin: 0;
+    background: #f9f3e8;
+    border-radius: 50px;
+    padding: 4px;
+    width: fit-content;
 }
 
-.contador button{
-    width:32px;
-    height:32px;
-    border:none;
-    background:#e69d00;
-    color:#fff;
-    font-size:18px;
-    font-weight:bold;
-    border-radius:6px;
-    cursor:pointer;
-    transition:0.2s;
+.contador button {
+    width: 34px;
+    height: 34px;
+    border: none;
+    background: transparent;
+    color: #F28C28;
+    font-size: 20px;
+    font-weight: 300;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
 }
 
-.contador button:hover{
-    background:#fabc12;
+.contador button:hover {
+    background: #F28C28;
+    color: #fff;
 }
 
-.contador input{
-    width:40px;
-    text-align:center;
-    border:1px solid #ccc;
-    border-radius:6px;
-    font-weight:bold;
-    padding:5px;
+.contador input {
+    width: 36px;
+    text-align: center;
+    border: none;
+    background: transparent;
+    font-weight: 700;
+    font-size: 15px;
+    font-family: sans-serif;
+    color: #1a1a1a;
+    padding: 0;
+    pointer-events: none;
+}
+
+/* FOOTER y ACCIONES rediseñados */
+.prod-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding-top: 10px;
+}
+
+.prod-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+}
+
+/* VER MÁS ocupa todo el ancho restante */
+.btn-ver-mas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background: linear-gradient(90deg, #F28C28, #e69d00);
+    color: #fff;
+    font-weight: 700;
+    font-size: .82rem;
+    padding: 10px 0;
+    border-radius: 50px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all .22s ease;
+    flex: 1;  /* ocupa todo el espacio disponible */
+}
+
+.btn-ver-mas:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(242,140,40,0.35);
+}
+
+/* quitar overrides viejos */
+.btn-carrito-producto,
+.btn-ver-mas {
+    min-width: unset;
+    flex: unset;
+}
+
+.btn-ver-mas {
+    flex: 1;
 }
 
 </style>
