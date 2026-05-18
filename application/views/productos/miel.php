@@ -540,7 +540,29 @@
 </div>
 
 <script>
-    
+  document.addEventListener("DOMContentLoaded", function(){
+
+    document.querySelectorAll('.contador').forEach(function(contador){
+
+        const btnMas = contador.querySelector('.btn-mas');
+        const btnMenos = contador.querySelector('.btn-menos');
+        const input = contador.querySelector('.cantidad');
+
+        btnMas.addEventListener('click', function(){
+            let valor = parseInt(input.value) || 1;
+            input.value = valor + 1;
+        });
+
+        btnMenos.addEventListener('click', function(){
+            let valor = parseInt(input.value) || 1;
+            if(valor > 1){
+                input.value = valor - 1;
+            }
+        });
+
+    });
+
+});  
 
 
 (function(){
