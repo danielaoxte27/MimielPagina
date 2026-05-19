@@ -78,3 +78,4 @@ ERROR - 2026-05-18 03:25:17 --> Severity: Warning --> Undefined property: stdCla
 ERROR - 2026-05-18 03:25:17 --> Severity: Warning --> Undefined property: stdClass::$stock C:\laragon\www\MimielPagina\application\views\productos\miel.php 551
 ERROR - 2026-05-18 03:25:17 --> Severity: Warning --> Undefined property: stdClass::$stock C:\laragon\www\MimielPagina\application\views\productos\miel.php 551
 ERROR - 2026-05-18 03:25:17 --> Severity: Warning --> Undefined property: stdClass::$stock C:\laragon\www\MimielPagina\application\views\productos\miel.php 551
+ERROR - 2026-05-18 04:45:16 --> Severity: error --> Exception: Unknown column 'p.stock' in 'field list' C:\laragon\www\MimielPagina\system\database\drivers\mysqli\mysqli_driver.php 305
