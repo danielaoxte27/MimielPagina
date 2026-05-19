@@ -95,10 +95,11 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 }
 
 .form-group label {
-    font-size: .85rem;
+    font-size: 16px;
     font-weight: 600;
     display: block;
     margin-bottom: 6px;
+    font-family: sans-serif;
 }
 
 .form-group input,
@@ -115,6 +116,28 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 .form-group textarea {
     resize: vertical;
+}
+
+.f_imagen{
+    display: none;
+}
+
+.lblimagen{
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: .95rem;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    color:#888;
+}
+
+.form-imagen label{
+    font-family: sans-serif !important;
+    color:#616060;
+    font-size: 15px;
+    font-weight: normal;
 }
 
 .form-botones {
@@ -202,7 +225,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             </div>
             <div class="form-group">
                 <label>Descripción *</label>
-                <input id="f_descripcion" type="email" placeholder="Breve descripción">
+                <input id="f_descripcion" type="text" placeholder="Breve descripción">
             </div>
             <div class="form-group">
                 <label>Ingredientes *</label>
@@ -211,6 +234,33 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             <div class="form-group">
                 <label>Receta *</label>
                 <textarea id="f_receta" rows="7.99" placeholder="Escribe el modo de preparación de tu receta aquí..."></textarea>
+            </div>
+            <div class="form-group">
+                <label>Imagen *</label>
+                <div class="form-imagen">
+                <label for="f_imagen" class="lblimagen">
+                    <center>
+                    <svg width="60px" height="60px" viewBox="-1 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    
+                    <title>align-top</title>
+                    <desc>Created with Sketch Beta.</desc>
+                    <defs>
+
+                    </defs>
+                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+                    <g id="Icon-Set" sketch:type="MSLayerGroup" transform="translate(-413.000000, -671.000000)" fill="#888">
+                    <path d="M423.732,689.718 L427,685.765 L427,698 C427,698.553 427.447,699 428,699 C428.553,699 429,698.553 429,698 L429,685.727 L432.299,689.718 C432.69,690.111 433.326,690.111 433.719,689.718 C434.11,689.324 434.11,688.688 433.719,688.294 L428.776,682.313 C428.567,682.104 428.289,682.015 428.016,682.029 C427.742,682.015 427.465,682.104 427.256,682.313 L422.313,688.294 C421.921,688.688 421.921,689.324 422.313,689.718 C422.705,690.111 423.341,690.111 423.732,689.718 L423.732,689.718 Z M441,677 L415,677 L415,675 C415,673.896 415.896,673 417,673 L439,673 C440.104,673 441,673.896 441,675 L441,677 L441,677 Z M441,699 C441,700.104 440.104,701 439,701 L417,701 C415.896,701 415,700.104 415,699 L415,679 L441,679 L441,699 L441,699 Z M439,671 L417,671 C414.791,671 413,672.791 413,675 L413,699 C413,701.209 414.791,703 417,703 L439,703 C441.209,703 443,701.209 443,699 L443,675 C443,672.791 441.209,671 439,671 L439,671 Z" id="align-top" sketch:type="MSShapeGroup">
+
+                    </path>
+                    </g>
+                    </g>
+                    </svg>
+                    <br>
+                    Subir imagen
+                    </center>
+                </label>
+                </div>
+                <input id="f_imagen" type="file" placeholder="Seleccionar Imagen" accept="image/png, image/jpg" class="f_imagen">
             </div>
 
             <div class="form-botones">
@@ -242,9 +292,10 @@ function enviarFormulario(tipo) {
     const descripcion   = document.getElementById('f_descripcion').value.trim();
     const ingredientes = document.getElementById('f_ingredientes').value.trim();
     const receta  = document.getElementById('f_receta').value.trim();
+    const imagen = document.getElementById('f_imagen').value.trim();
     const resp     = document.getElementById('msg_respuesta');
 
-    if (!titulo || !descripcion || !ingredientes || !receta || !mensaje) {
+    if (!titulo || !descripcion || !ingredientes || !receta || !mensaje || !imagen) {
         resp.style.display = 'block';
         resp.style.color   = '#dc2626';
         resp.textContent   = 'Por favor completa los campos obligatorios.';
@@ -257,6 +308,7 @@ function enviarFormulario(tipo) {
     formData.append('ingredientes', ingredientes);
     formData.append('receta',  receta);
     formData.append('tipo',     tipo);
+    formData.append('imagen', imagen);
 
     fetch('<?= site_url('Recetas/enviar') ?>', {
         method: 'POST',
