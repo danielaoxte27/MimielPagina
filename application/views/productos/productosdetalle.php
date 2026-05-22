@@ -316,7 +316,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 'peso_caja'        => 'Peso por caja',
                 'contenido_tarima' => 'Cont. por tarima',
                 'cajas_base'       => 'Cajas en base',
-                'camas'            => 'Camas',
+                'Material'         => 'Material',
                 'peso_tarima'      => 'Peso de tarima',
                 'piezas_tarima'    => 'Piezas por tarima',
             ];
